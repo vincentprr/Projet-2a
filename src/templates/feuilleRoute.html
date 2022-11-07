@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../css/feuille_route.css">
     </head>
     <body>
     
@@ -19,9 +19,11 @@
         </nav>
     
         <main>
-            <p>
-                Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival BD.BOUM du {{date}}.
-            </p>
+            <section>
+                <p>
+                    Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival BD.BOUM du {{date}}.
+                </p>
+            </section>
             <section>
                 <h3>
                     Transport
@@ -38,16 +40,18 @@
                 <h3>
                     Hébergement
                 </h3>
-                Le 
-                <input type="select">
-                    <nom>Jour</nom>
-                    <option valeur="mer">Mercredi</option>
-                    <option valeur="je">Jeudi</option>
-                    <option valeur="ven">Vendredi</option>
-                    <option valeur="sam">Samedi</option>
-                    <option valeur="dim">Dimanche</option>
-                </input>
-                , vous avez réservé {{type_chambre}} à {{hotel}}. 
+                <section id="hbrgt">
+                    <p>  Le  </p>
+                    <select name="jour" id="jour">
+                        <option valeur="mer">Mercredi</option>
+                        <option valeur="je">Jeudi</option>
+                        <option valeur="ven">Vendredi</option>
+                        <option valeur="sam">Samedi</option>
+                        <option valeur="dim">Dimanche</option>
+                    </select>
+                    <p>, vous avez réservé {{type_chambre}} à {{hotel}}.</p>
+                </section>
+                
             </section>
             <section>
                 <h3>
