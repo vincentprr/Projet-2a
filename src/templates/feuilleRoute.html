@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/nav.css">
+    </head>
+    <body>
+    
+        <nav>
+            <div class="titretop" id="mytire">
+                <img src="../ressources/logo.png" alt="logo">
+                <div class="nomfest">
+                    <h1>BD.BOUM</h1>
+                    <h1>FESTIVAL</h1>
+                    <h2>FEUILLE DE ROUTE</h2>
+                </div>   
+            </div>
+        </nav>
+    
+        <main>
+            <p>
+                Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival BD.BOUM du {{date}}.
+            </p>
+            <section>
+                <h3>
+                    Transport
+                </h3>
+                <p>
+                    Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
+                </p>
+                <br>
+                <p>
+                    Vous repartez le {{jour_depart}} à {{heure_depart}}.
+                </p>
+            </section>
+            <section>
+                <h3>
+                    Hébergement
+                </h3>
+                Le 
+                <input type="select">
+                    <nom>Jour</nom>
+                    <option valeur="mer">Mercredi</option>
+                    <option valeur="je">Jeudi</option>
+                    <option valeur="ven">Vendredi</option>
+                    <option valeur="sam">Samedi</option>
+                    <option valeur="dim">Dimanche</option>
+                </input>
+                , vous avez réservé {{type_chambre}} à {{hotel}}. 
+            </section>
+            <section>
+                <h3>
+                    Restauration
+                </h3>
+                <table>
+                    <tr>
+                        <td></td><td>Jeudi</td><td>Vendredi</td><td>Samedi</td><td>Dimanche</td>
+                    </tr>
+                    <tr>
+                        <td>Midi</td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>Soir</td><td></td><td></td><td></td><td></td>
+                    </tr>
+                </table>
+            </section>
+            
+
+        </main>
+    
+        <footer>
+            <div class="footer">
+                <a href="https://www.facebook.com/bdboum?fref=ts">
+                    <img src="../ressources/facebook.png" alt="">
+                </a>
+                <a href="https://www.instagram.com/bdboum/">
+                    <img src="../ressources/insta.png" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UCZzbuXSrKg_De4i7H9BaW1Q">
+                    <img src="../ressources/youtube.png" alt="">
+    </head>
+</html>
