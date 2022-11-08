@@ -143,11 +143,20 @@ h3 {
     font-size: 2vh;
 }
 
+.p3 {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 1vw;
+    font-size: 2vh;
+    margin-left: 10%;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
     text-align: justify;
     padding: 1vw;
     margin-left: 10%;
+    margin-right: 10%;
     font-size: 2vh;
     }
 
