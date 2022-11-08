@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/nav.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <nav>
+            <div class="titretop" id="mytire">
+                <a href="index.html"><img src="../ressources/logo.png" alt="logo"></a>
+                <div class="nomfest">
+                    <h1>BD.BOUM</h1>
+                    <h1>FESTIVAL</h1>
+                </div>
+                
+            </div>
+    
+            <div class="topnav" id="myTopnav">
+                <a href="#inscrire">S'INSCRIRE</a>
+                <a href="connexion.html">SE CONNECTER</a>
+                <a href="#details" class="details">DETAILS SUR LE FESTIVAL</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <img src="../ressources/menu.png" alt="menu">
+                </a>
+            </div>
+        </nav>
+        <main>
+            <form> 
+                <h1>S'inscrire</h1>
+                <p class="choose-email"> Veuillez entrer vos informations :</p>
+                
+                <div class="inputs inscrit">
+                    <input type="text" name="nom" placeholder="Nom" required>
+                    <input type="text" name="prenom" placeholder="Prénom" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Mot de passe" required>
+                    <input type="password" name="password" placeholder="Confirmer mot de passe" required>
+
+                </div>
+                
+                
+                <div>
+                    <button type="submit">S'inscrire'</button>
+                </div>
+                </form>
+        </main>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+    </body>
+</html>
+    
