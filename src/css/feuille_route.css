@@ -89,18 +89,26 @@ main {
     flex-wrap: wrap;
     flex-basis: 100%;
     }
+h1 {
+    font-size: 100%
+}
+h2 {
+    color: white;
+    font-style: italic;
+    font-size: 100%
+}
 
 h3 {
-    width: 150px;
-    height: 25px;
+    width: 8em;
+    height: 1.2em;
     font-family: 'Roboto', sans-serif;
-    font-size: 2vw;
+    font-size: x-large;
     color: #FBBE3B;
     background-color: #262F3A;
     font-style: italic;
     text-align: justify;
     padding: 1vw;
-    border-bottom-right-radius: 2vw;
+    border-bottom-right-radius: 1em;
     text-indent: 2vw;
     }
 

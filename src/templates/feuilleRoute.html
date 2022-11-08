@@ -12,9 +12,18 @@
                 <img src="../ressources/logo.png" alt="logo">
                 <div class="nomfest">
                     <h1>BD.BOUM</h1>
-                    <h1>FESTIVAL</h1>
                     <h2>FEUILLE DE ROUTE</h2>
-                </div>   
+                </div>
+                
+            </div>
+    
+            <div class="topnav" id="myTopnav">
+                <a href="#inscrire">S'INSCRIRE</a>
+                <a href="#connecter">SE CONNECTER</a>
+                <a href="#details" class="details">DETAILS SUR LE FESTIVAL</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <img src="../ressources/menu.png" alt="menu">
+                </a>
             </div>
         </nav>
     
@@ -82,6 +91,19 @@
                     <img src="../ressources/insta.png" alt="">
                 </a>
                 <a href="https://www.youtube.com/channel/UCZzbuXSrKg_De4i7H9BaW1Q">
-                    <img src="../ressources/youtube.png" alt="">
-    </head>
+                    <img src="../ressources/youtube.png" alt=""></a>
+            </div>
+        </footer>
+    </body>
+
+    <script>
+        function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+        }
+    </script>
 </html>
