@@ -36,10 +36,8 @@ body {
     
 .nomfest h1 {
     color: #ddd;
-    }
-
-.nomfest h1:first-child{
     margin-right: 3%;
+    font-size: 3em;
     }
 
 
@@ -90,12 +88,14 @@ main {
     flex-basis: 100%;
     }
 h1 {
-    font-size: 100%
+    font-size: 100%;
 }
+
 h2 {
     color: white;
     font-style: italic;
-    font-size: 100%
+    font-size: 0.8em;
+    margin-left: 4%;
 }
 
 h3 {
@@ -112,6 +112,12 @@ h3 {
     text-indent: 2vw;
     }
 
+#bord {
+    border-bottom: 2px solid #FBBE3B;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 #jour {
     background-color: black;
     color : white;
@@ -121,19 +127,31 @@ h3 {
     font-weight: bold;
     padding-left: 1vw;
     padding-right: 1vw;
+    font-size: 0.5em;
     }
 
 #hbrgt {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     }
+
+.p4 {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 1vw;
+    font-size: 2vh;
+}
 
 p {
     font-family: 'Roboto', sans-serif;
     text-align: justify;
     padding: 1vw;
+    margin-left: 10%;
+    font-size: 2vh;
     }
+
+
 
 table {
     border-collapse: collapse;
