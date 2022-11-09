@@ -7,3 +7,6 @@ class Personne(db.Model):
     prenomP = db.Column(db.String(42))
     typeId = db.Column(TINYINT)
     ddnP = db.Column(db.Date)
+    telP = db.Column(db.String(11))
+    emailP = db.Column(db.String(60))
+    mdpP = db.Column(db.String(65))
