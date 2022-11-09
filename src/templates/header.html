@@ -1,0 +1,18 @@
+<nav>
+    <div class="titretop" id="mytire">
+        <a href="index.html"><img src="static/images/logo.png" alt="logo"></a>
+        <div class="nomfest">
+            <h1>BD.BOUM</h1>
+            <h1>FESTIVAL</h1>
+        </div>
+    </div>
+
+    <div class="topnav" id="myTopnav">
+        <a href="{{ url_for("inscription") }}">S'INSCRIRE</a>
+        <a href="{{ url_for("connexion") }}">SE CONNECTER</a>
+        <a href="{{ url_for("index") }}" class="details">DETAILS SUR LE FESTIVAL</a>
+        <a href="javascript:void(0);" class="icon" onclick="displayHeader()">
+            <img src="static/images/menu.png" alt="menu">
+        </a>
+    </div>
+</nav>
