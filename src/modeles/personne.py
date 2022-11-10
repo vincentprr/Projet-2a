@@ -3,7 +3,7 @@ from sqlalchemy.dialects.mysql import TINYINT
 
 class Personne(db.Model):
     id = db.Column("idP", db.Integer, primary_key=True)
-    nomP = db.Column(db.String(42))
+    nom = db.Column("nomP", db.String(42))
     prenomP = db.Column(db.String(42))
     typeId = db.Column(TINYINT)
     ddnP = db.Column(db.Date)
