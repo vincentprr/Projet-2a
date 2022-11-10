@@ -11,4 +11,4 @@ class Personne(db.Model):
     email = db.Column("emailP", db.String(60))
     mdp = db.Column("mdpP", db.String(65))
     remarques = db.Column(TEXT)
-    use_car = db.Column(TINYINT, unsigned=True)
+    use_car = db.Column(TINYINT(unsigned=True))
