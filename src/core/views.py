@@ -1,5 +1,5 @@
 from flask import render_template, url_for, request
-from core.app import app
+from .app import app
 
 @app.route("/index.html")
 @app.route("/index")
