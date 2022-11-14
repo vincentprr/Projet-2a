@@ -1,9 +1,9 @@
 from core.database import db
-from sqlalchemy.dialects.mysql import TINYINT, TEXT
+from sqlalchemy.dialects.mysql import TEXT, INTEGER
 
 
 class Restaurant(db.Model):
-    idRest = db.Column("idRest",db.Integer(unsigned=True),primary_key=True)
+    idRest = db.Column("idRest",INTEGER(unsigned=True),primary_key=True)
     nomRest = db.Column("nomRest",TEXT)
-    idCreneauM = db.Column("idCreneauM",db.Integer(unsigned=True))
-    idCreneauS = db.Column("idCreneauS",db.Integer(unsigned=True))
+    idCreneauM = db.Column("idCreneauM",INTEGER(unsigned=True))
+    idCreneauS = db.Column("idCreneauS",INTEGER(unsigned=True))

@@ -1,9 +1,9 @@
 from core.database import db
-from sqlalchemy.dialects.mysql import TINYINT, TEXT
+from sqlalchemy.dialects.mysql import TINYINT, TEXT, INTEGER
 
 
 class Hotel(db.Model):
-    idHotel = db.Column("idHotel",db.Integer(unsigned=True),primary_key=True)
+    idHotel = db.Column("idHotel",INTEGER(unsigned=True),primary_key=True)
     nomHotel = db.Column("nomHotel",TEXT)
     adresseHotel = db.Column("adresseHotel",TEXT)
     telHotel = db.Column("telHotel",TEXT)
