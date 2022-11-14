@@ -1,5 +1,5 @@
 from flask import Flask
-from core.const import DATABASE_PROVIDER, DATABASE_HOST, DATABASE_PASS, DATABASE_USER, DATABASE_NAME, SESSION_KEY_LENGTH
+from .const import DATABASE_PROVIDER, DATABASE_HOST, DATABASE_PASS, DATABASE_USER, DATABASE_NAME, SESSION_KEY_LENGTH
 from os import urandom
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
