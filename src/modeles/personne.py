@@ -1,4 +1,4 @@
-from core.database import db
+from ..core.database import db
 from sqlalchemy.dialects.mysql import TINYINT, TEXT, INTEGER
 
 class Personne(db.Model):

@@ -1,5 +1,6 @@
-from core.database import db
-from sqlalchemy.dialects.mysql import TEXT
+from ..core.database import db
+from sqlalchemy.dialects.mysql import TEXT, INTEGER
 
 class Cle(db.Model):
-    cleAct = db.Column("cleActivation",TEXT,primary_key=True)
+    id = db.Column("idC", INTEGER(unsigned=True), primary_key=True)
+    cleAct = db.Column("cleActivation",TEXT)

@@ -1,7 +1,7 @@
-from core.database import db
+from ..core.database import db
 from sqlalchemy.dialects.mysql import INTEGER
 
 
-class Mangeur(db.Model):
+class Transporter(db.Model):
     idVoy = db.Column("idVoy",INTEGER(unsigned=True),primary_key=True)
     idP = db.Column("idP",INTEGER(unsigned=True),primary_key=True)

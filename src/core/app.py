@@ -9,4 +9,4 @@ app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['SQLALCHEMY_DATABASE_URI'] = "%s://%s:%s@%s/%s" % (DATABASE_PROVIDER, DATABASE_USER, DATABASE_PASS, DATABASE_HOST, DATABASE_NAME)
 app.secret_key = urandom(SESSION_KEY_LENGTH)
 
-import core.views
+from .views import *
