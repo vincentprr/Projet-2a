@@ -5,6 +5,7 @@ try:
     db = SQLAlchemy(app)
 except:
     print("Incorrect connection string for the database...")
+    quit()
 
 def create_tables(database:SQLAlchemy) -> None:
     """
