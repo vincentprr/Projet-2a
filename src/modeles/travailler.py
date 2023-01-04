@@ -3,5 +3,6 @@ from sqlalchemy.dialects.mysql import INTEGER
 
 
 class Travailler(db.Model):
-    idCreneau = db.Column("idCreneau",INTEGER(unsigned=True),primary_key=True)
-    idP = db.Column("idP",INTEGER(unsigned=True),primary_key=True)
+    __tablename__ = "TRAVAILLER"
+    idP = db.Column("idP",INTEGER(unsigned=True), db.ForeignKey("STAFF.idP"), primary_key=True)
+    idCre = db.Column("idCre",INTEGER(unsigned=True),db.ForeignKey("CRENEAU.idCre"),primary_key=True)

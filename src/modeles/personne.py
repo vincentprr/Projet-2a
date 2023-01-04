@@ -2,6 +2,7 @@ from ..core.database import db
 from sqlalchemy.dialects.mysql import TINYINT, TEXT, INTEGER
 
 class Personne(db.Model):
+    __tablename__ = "PERSONNE"
     id = db.Column("idP", INTEGER(unsigned=True), primary_key=True)
     nom = db.Column("nomP", db.String(42))
     prenom = db.Column("prenomP", db.String(42))
