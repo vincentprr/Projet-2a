@@ -6,4 +6,4 @@ class Auteur(db.Model):
     idP = db.Column("idP", INTEGER(unsigned=True), db.ForeignKey("INTERVENANT.idP"), primary_key=True)
     dedicaces = db.relationship("creneau", secondary="DEDICACER")
     maisons_editions = db.relationship("MaisonEdition", secondary="APPARTIENT")
-    intervenant = db.relationship("Intervenant")
+    intervenant = db.relationship("Intervenant", backref="auteur")
