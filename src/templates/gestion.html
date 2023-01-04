@@ -2,27 +2,38 @@
 
 {% block content %}
 
-<div class="flex-div">
-    <h1 class="title">Liste de tout les artistes</h1>
+<div>
+    <h1 class="title">Liste de tous les artistes</h1>
     <button class="btn-add">Ajouter un artiste</button>
 </div>
 
 <div>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Téléphone</th>
-            <th>Email</th>
-            <th>Type</th>
+    <table class="table-pers">
+        <tr class="thead">
+            <td class="tdhead">Nom</td>
+            <td class="tdhead">Prénom</td>
+            <td class="tdhead">Téléphone</td>
+            <td class="tdhead">Email</td>
+            <td class="tdhead">Type</td>
+            <td class="tdhead">Editer</td>
         </tr>
-        <tr>
+        <tr class="tbody">
             <td>Mikulic</td>
             <td>Téo</td>
             <td>0618146283</td>
             <td>teo.mikulic@gmail.com</td>
             <td>Auteur</td>
+            <td><button class="btn-edit"><img src="../static/images/logo-edit.png" class="logos" alt="Editer"></button><button class="btn-delete"><img src="../static/images/logo-remove.png" class="logos" alt="Supprimer"></button></td>
         </tr>
+        <tr class="tbody">
+            <td>Poirier</td>
+            <td>Vincent</td>
+            <td>0614896552</td>
+            <td>vincent.poirier@gmail.com</td>
+            <td>Administrateur</td>
+            <td><button class="btn-edit"><img src="../static/images/logo-edit.png" class="logos" alt="Editer"></button><button class="btn-delete"><img src="../static/images/logo-remove.png" class="logos" alt="Supprimer"></button></td>
+        </tr>
+        
     </table>
 </div>
 
