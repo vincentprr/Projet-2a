@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flex-div">
+    <h1 class="title">Liste de tout les artistes</h1>
+    <button class="btn-add">Ajouter un artiste</button>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Type</th>
+        </tr>
+        <tr>
+            <td>Mikulic</td>
+            <td>Téo</td>
+            <td>0618146283</td>
+            <td>teo.mikulic@gmail.com</td>
+            <td>Auteur</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
