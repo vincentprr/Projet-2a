@@ -2,13 +2,14 @@
 
 {% block content %}
 <main>
-    <form> 
+    <form role="form" method="post" action="{{ url_for('connexion') }}"> 
+        {{ form.hidden_tag() }}
         <h1>Se connecter</h1>
-        <p class="choose-email"> utiliser mon adresse e-mail :</p>
+        <p class="choose-email">Utiliser mon adresse e-mail :</p>
         
         <div class="inputs">
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Mot de passe">
+            {{ form.email(placeholder="Email") }}
+            {{ form.password(placeholder="Mot de passe") }}
         </div>
         
         <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un.</p>
