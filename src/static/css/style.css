@@ -280,4 +280,19 @@ form {
     }
 }
 
+#hor {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    color: #FBBE3B;
+    }
 
+#mainhor {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    }

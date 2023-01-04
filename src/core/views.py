@@ -20,3 +20,10 @@ def inscription():
         pass
 
     return render_template("inscription.html")
+
+@app.route('/horaires', methods=["GET", "POST"])
+def horaires():
+    if request.method == "POST":
+        pass
+
+    return render_template("horaires.html")
