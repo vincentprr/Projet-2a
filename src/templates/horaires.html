@@ -2,48 +2,71 @@
 
 {% block content %}
 <h1 id="hor">Horaires</h1>
-<main id="mainhor">
-    <section>
-        <h2>Vendredi</h2>
-        <section>
-            <p>Matin :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-            <p>Après-midi :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-        </section>
-    </section>
-    <section>
-        <h2>Samedi</h2>
-        <section>
-            <p>Matin :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-            <p>Après-midi :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-        </section>
-    </section>
-    <section>
-        <h2>Dimanche</h2>
-        <section>
-            <p>Matin :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-            <p>Après-midi :</p>
-            <input type="text" name="debut" required>
-            <input type="text" name="fin" required>
-        </section>
-    </section>
-</main>
-<aside>
-    <div class="explications">
-        <h3>Ici vous pouvez choisir/modifier les créneaux horaires</h3>
-        <p>Il vous suffit juste de renseigner les heures (ex : 12h00, 15h30).</p>
-        <p>Les horaires comme 11h00 à 13h00 sont à renseigner dans le matin.</p>
+<div id="main-div">
+    <div id="mainhor">
+        <div>
+            <h2>Vendredi</h2>
+            <div>
+                <p>Matin :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+                <p>Après-midi :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h2>Samedi</h2>
+            <div>
+                <p>Matin :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+                <p>Après-midi :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h2>Dimanche</h2>
+            <div>
+                <p>Matin :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+                <p>Après-midi :</p>
+                <input type="text" name="debut" required>
+                <p>à</p>
+                <input type="text" name="fin" required>
+            </div>
+        </div>
     </div>
-    <input type="select" name="">
-</aside>
+    <div>
+        <div id="ashor">
+            <div id="explications">
+                <h3>Ici vous pouvez choisir/modifier les créneaux horaires</h3>
+                <p>Il vous suffit juste de renseigner les heures (ex : 12h00, 15h30).</p>
+                <p>Les horaires comme 11h00 à 13h00 sont à renseigner dans le matin.</p>
+            </div>
+            <br>
+        </div>
+        <div id="type">
+            <select name="event" id="event">
+                <option value="1">Repas</option>
+                <option value="2">Créneau</option>
+            </select>
+            <br>
+            <input type="submit" value="Sauvegarder">
+        </div>
+    </div>
+
+
+</div>
+
 
 {% endblock %}

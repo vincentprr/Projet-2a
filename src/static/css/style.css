@@ -17,33 +17,34 @@ body {
     flex-wrap: nowrap;
     height: 10vh;
     align-items: center;
-    }
+}
 
 .titretop a {
     margin-left: 5%;
 }
-.titretop img{
+
+.titretop img {
     width: auto;
     height: 7.5vh;
-    
-  
-    }
+
+
+}
 
 .nomfest {
     display: flex;
     flex-wrap: nowrap;
     font-family: 'Roboto', sans-serif;
     font-size: 2vw;
-    }
+}
 
-    
+
 .nomfest h1 {
     color: #ddd;
-    }
+}
 
-.nomfest h1:first-child{
+.nomfest h1:first-child {
     margin-right: 3%;
-    }
+}
 
 
 .topnav {
@@ -53,7 +54,7 @@ body {
     border-radius: 0px 0px 2vw 2vw;
 
 
-    }
+}
 
 .topnav a {
     float: right;
@@ -65,27 +66,27 @@ body {
     font-size: 1.3vw;
     padding-right: 6%;
     transition: 0.3s;
-    }
+}
 
 .details {
-        margin-right: 30%;
-    }
+    margin-right: 30%;
+}
 
 
 .topnav a:hover {
     background-color: #FBBE3B;
     color: #374352;
     border-radius: 3vw;
-    }
+}
 
 .topnav .icon {
     display: none;
-    }
+}
 
-.icon img{
+.icon img {
     width: 5vw;
     height: 5vw;
-    }
+}
 
 
 
@@ -99,7 +100,8 @@ main {
     justify-content: center;
     align-items: center;
     margin-top: 2vh;
-    }
+}
+
 .contenant {
     height: 30em;
     width: 45em;
@@ -108,26 +110,27 @@ main {
     background-color: #FBBE3B;
     transition: transform 0.5s;
 
-    }
+}
 
 .contenant:hover {
     transform: translateY(-0.7em);
 }
-#image{
+
+#image {
     overflow: hidden;
     background-image: url(../images/accueil.jpg);
     background-size: cover;
     transition: transform 0.5s, filter 0.3s, box-shadow 0.3s;
     filter: grayscale(100%);
-    
+
 }
 
-#image:hover{
+#image:hover {
     transform: scale(1.1);
-    filter: grayscale(0%) ;
+    filter: grayscale(0%);
     box-shadow: 0 0.8em 0.6em rgba(0, 0, 0, 0.2);
 
-    
+
 }
 
 .overlay {
@@ -135,23 +138,23 @@ main {
     transition: backdrop-filter 0.3s;
     height: 100%;
     width: 100%;
-    color:#ddd;
-    }
+    color: #ddd;
+}
 
 .overlay h1 {
     margin-top: 0;
-    }
+}
 
 .overlay:hover {
     backdrop-filter: blur(4px);
-    }
+}
 
-.overlay > *{
+.overlay>* {
     opacity: 0;
     transition: opacity 0.3s;
 }
 
-.overlay:hover > *{
+.overlay:hover>* {
     opacity: 1;
 }
 
@@ -164,20 +167,21 @@ footer {
     justify-content: center;
 
     margin-top: 2vh;
-    }
+}
+
 footer a {
     height: 3vh;
-    }
+}
 
 footer img {
     height: 3vh;
     margin-right: 1vw;
-    }
+}
 
 footer p {
     float: right;
     font-size: 1.3vw;
-    }
+}
 
 
 
@@ -189,66 +193,75 @@ form {
     padding: 2.5rem 3.7rem;
     border-radius: 10px;
     min-width: 12rem;
-  }
-  form h1{
+}
+
+form h1 {
     color: #FBBE3B;
-    text-align:center;
-  }
-  
-  form p.choose-email{
+    text-align: center;
+}
+
+form p.choose-email {
     color: #f2f2f2;
-    text-align:center;
-  }
-  form .inputs {
+    text-align: center;
+}
+
+form .inputs {
     display: flex;
     flex-direction: column;
-  }
-  form .inputs *{
-    padding: 0.8rem;
-    border:none;
-    border-radius: 5px;
-    background-color:#f2f2f2;
-    outline:none;
-    margin-bottom: 2rem;
-  }
+}
 
-  .inscrit{
+form .inputs * {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    outline: none;
+    margin-bottom: 2rem;
+}
+
+.inscrit {
     margin-bottom: 1rem;
-  }
-  form p.inscription{
+}
+
+form p.inscription {
     font-size: 0.8rem;
     margin-bottom: 1.2rem;
     color: #fff;
-  }
-  form p.inscription span{
+}
+
+form p.inscription span {
     color: #FBBE3B;
-  }
-  form button{
+}
+
+form button {
     padding: 0.8rem 1.2rem;
     border-radius: 5px;
-    border:none;
+    border: none;
     font-size: 0.9rem;
     color: #fff;
     background-color: #FBBE3B;
-    outline:none;
-    cursor:pointer;
-  }
+    outline: none;
+    cursor: pointer;
+}
 
 
 
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .topnav a {
         display: none;
         font-size: 3vw;
     }
+
     .topnav a.icon {
         float: left;
         display: block;
     }
+
     .nomfest {
         font-size: 4vw;
     }
+
     main {
         flex-wrap: wrap;
 
@@ -257,42 +270,124 @@ form {
     .topnav.responsive {
         position: relative;
     }
+
     .topnav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
+
     .topnav.responsive a {
         float: none;
         display: block;
         text-align: left;
-    
+
     }
+
     .footer {
         flex-wrap: wrap;
     }
+
     .contenant {
         height: 25em;
     }
 
-    form{
+    form {
         margin-top: 0px;
     }
 }
 
 #hor {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
     margin-top: 2vh;
     color: #FBBE3B;
-    }
+    text-align: center;
+}
+
+#mainhor h2 {
+    width: 8em;
+    height: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    color: #FBBE3B;
+    background-color: #262F3A;
+    font-style: italic;
+    text-align: justify;
+    padding: 1vw;
+    border-bottom-right-radius: 1em;
+    text-indent: 2vw;
+}
 
 #mainhor {
+    flex-wrap: wrap;
+    flex-basis: 70%;
+}
+
+#mainhor p{
+    font-size: 1.5vw;
+    color: white;
+    text-align: justify;
+    padding: 1vw;
+    margin: 0;
+}
+
+#ashor {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     margin-top: 2vh;
-    }
+    flex-basis: 50%;
+}
+
+#main-div {
+    display: flex;
+    margin-top: 2vh;
+    margin: 0;
+}
+
+#explications {
+    flex-basis: 100%;
+    margin: 0;
+    background-color: #262F3A;
+    padding: 2.5rem 3.7rem;
+    border-radius: 10px;
+    min-width: 12rem;
+    margin-top: 2vh;
+    margin-right: 20vw;
+    margin-bottom: 20vh;
+
+}
+
+#explications h3 {
+    font-size: 1.5vw;
+    color: #FBBE3B;
+}
+
+#event {
+    flex-basis: 100%;
+    margin: 0;
+    background-color: #262F3A;
+    border-radius: 10px;
+    border-color: #262F3A;
+    min-width: 12rem;
+    margin-top: 2vh;
+    margin-right: 20vw;
+    margin-bottom: 20vh;
+    color: #fff;
+    font-size: 1vw;
+}
+
+#type input {
+    margin: 0.5vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    color: #FBBE3B;
+    background-color: #262F3A;
+    font-style: italic;
+    text-align: center;
+    border: none;
+    border-radius: 1em;
+}
+
+#explications p {
+    font-size: 1vw;
+    color: #fff;
+}
