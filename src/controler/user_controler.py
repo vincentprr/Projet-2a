@@ -2,6 +2,7 @@ from ..modeles.personne import Personne
 from ..core.app import login_manager
 from wtforms import StringField, PasswordField, EmailField
 from flask_wtf import FlaskForm
+from hashlib import sha256
 
 @login_manager.user_loader
 def get_user_by_id(id : int) -> Personne or None:
@@ -22,7 +23,10 @@ class LoginForm(FlaskForm):
 
     def get_auth_user(self):
         user = get_user(email = self.email.data)
-        return user if user is not None and user.password == self.password.data else None
+        crypt = sha256()
+        crypt.update(self.password.data.encode())
+        
+        return user if user is not None and user.password == crypt.hexdigest() else None
 
 
 class RegisterForm(FlaskForm):
