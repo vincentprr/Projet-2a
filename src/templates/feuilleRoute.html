@@ -1,111 +1,85 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/feuille_route.css">
-    </head>
-    <body>
-    
-        <nav>
-            <div class="titretop" id="mytire">
-                <img src="../ressources/logo.png" alt="logo">
-                <div class="nomfest">
-                    <h1>BD.BOUM</h1>
-                </div>
-                <h2>FEUILLE DE ROUTE</h2>
-            </div>
-    
-            <div class="topnav" id="myTopnav">
-                <a href="#inscrire">S'INSCRIRE</a>
-                <a href="#connecter">SE CONNECTER</a>
-                <a href="#details" class="details">DETAILS SUR LE FESTIVAL</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <img src="../ressources/menu.png" alt="menu">
-                </a>
-            </div>
-        </nav>
-    
-        <main>
-            <section>
-                <p>
-                    Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival BD.BOUM du {{date}}.
-                </p>
-            </section>
-            <section>
-                <h3>
-                    Transport
-                </h3>
-                <p>
-                    Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
-                </p>
-                <div class="bordure" id="bord">
-                </div>
-                <p>
-                    Vous repartez le {{jour_depart}} à {{heure_depart}}.
-                </p>
-            </section>
-            <section>
-                <h3>
-                    Hébergement
-                </h3>
-                <section id="hbrgt">
-                    <div class="p3">  Le  </div>
-                    <select name="jour" id="jour">
-                        <option valeur="mer">Mercredi</option>
-                        <option valeur="je">Jeudi</option>
-                        <option valeur="ven">Vendredi</option>
-                        <option valeur="sam">Samedi</option>
-                        <option valeur="dim">Dimanche</option>
-                    </select>
-                    <div class="p4">
-                        , vous avez réservé {{type_chambre}} à {{hotel}}.
-                    </div>
-                </section>
-                
-            </section>
-            <section>
-                <h3>
-                    Restauration
-                </h3>
-                <table>
-                    <tr>
-                        <td></td><td>Jeudi</td><td>Vendredi</td><td>Samedi</td><td>Dimanche</td>
-                    </tr>
-                    <tr>
-                        <td>Midi</td><td></td><td></td><td></td><td></td>
-                    </tr>
-                    <tr>
-                        <td>Soir</td><td></td><td></td><td></td><td></td>
-                    </tr>
-                </table>
-            </section>
-            
+{% extends 'base.html' %}
 
-        </main>
-    
-        <footer>
-            <div class="footer">
-                <a href="https://www.facebook.com/bdboum?fref=ts">
-                    <img src="../ressources/facebook.png" alt="">
-                </a>
-                <a href="https://www.instagram.com/bdboum/">
-                    <img src="../ressources/insta.png" alt="">
-                </a>
-                <a href="https://www.youtube.com/channel/UCZzbuXSrKg_De4i7H9BaW1Q">
-                    <img src="../ressources/youtube.png" alt=""></a>
-            </div>
-        </footer>
-    </body>
+{% block content %}
+<section>
+    <p>
+        Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
+        BD.BOUM du {{date}}.
+    </p>
+</section>
+<section>
+    <h3>
+        Transport
+    </h3>
+    <p>
+        Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
+    </p>
+    <div class="bordure" id="bord">
+    </div>
+    <p>
+        Vous repartez le {{jour_depart}} à {{heure_depart}}.
+    </p>
+</section>
+<section>
+    <h3>
+        Hébergement
+    </h3>
+    <section id="hbrgt">
+        <div class="p3"> Le </div>
+        <select name="jour" id="jour">
+            <option valeur="mer">Mercredi</option>
+            <option valeur="je">Jeudi</option>
+            <option valeur="ven">Vendredi</option>
+            <option valeur="sam">Samedi</option>
+            <option valeur="dim">Dimanche</option>
+        </select>
+        <div class="p4">
+            , vous avez réservé {{type_chambre}} à {{hotel}}.
+        </div>
+    </section>
 
-    <script>
-        function myFunction() {
+</section>
+<section>
+    <h3>
+        Restauration
+    </h3>
+    <table>
+        <tr>
+            <td></td>
+            <td>Jeudi</td>
+            <td>Vendredi</td>
+            <td>Samedi</td>
+            <td>Dimanche</td>
+        </tr>
+        <tr>
+            <td>Midi</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Soir</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</section>
+
+
+{% endblock %}
+
+<script>
+    function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
         } else {
             x.className = "topnav";
         }
-        }
-    </script>
+    }
+</script>
+
 </html>
