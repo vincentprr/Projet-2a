@@ -30,3 +30,7 @@ def inscription():
         redirect(url_for('index'))
 
     return render_template("inscription.html")
+
+@app.route('/gestion')
+def gestion():
+    return render_template("gestion.html")
