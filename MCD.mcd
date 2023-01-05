@@ -1,0 +1,47 @@
+:
+MAISON_EDITION: idME, nomME, numStand
+:
+:
+:
+NAVETTE: idNavette, capaciteNavette
+
+:
+APPARTIENT, 0N MAISON_EDITION, 1N AUTEUR
+:
+TRANSPORTER, 0N VOYAGE, 0N INTERVENANT
+VOYAGE: idVoy,heureDebVoy, dureeVoy
+MOBILISER, 0N NAVETTE, 11 VOYAGE
+
+DEDICACER, 0N AUTEUR, 0N CRENEAU
+AUTEUR: idA
+IS_A3, 11 AUTEUR, 01> [isa] INTERVENANT
+INTERVENANT: idIntervenant, arrive, depart, moyenLocomotion
+LOGER, 11 INTERVENANT , 0N HOTEL: idLog, jourL
+HOTEL: idHotel,nomHotel, adresseHotel, telHotel, mailHotel, capaciteHotel
+
+CRENEAU: idCreneau, dateDebut, dateFin
+TRAVAILLER, 0N CRENEAU, 0N STAFF
+STAFF: idS
+IS_A2, 11 STAFF, 11 INTERVENANT, 01> [isa] MANGEUR
+:
+:
+
+SERVIR_A, 22 RESTAURANT, 0N CRENEAU
+RESTAURANT: idRest, nomRest
+MANGER, 0N REPAS, 0N MANGEUR
+MANGEUR: idM
+IS_A1, 11 EXPOSANT, 11 MANGEUR, 01> [isa] PERSONNE
+EXPOSANT: idE, numStand
+
+:
+PROPOSE, 11 REPAS, 0N RESTAURANT
+REPAS: idRepas, jour, estMidi
+AVOIR, 0N MANGEUR, 0N REGIME
+PERSONNE: idP, nomP, prenomP, ddnP, telP, emailP, mdpP, remarques
+:
+
+:
+:
+:
+REGIME: idRegime, nomRegime
+CLE: clé_activation

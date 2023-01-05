@@ -7,15 +7,13 @@
         <p class="choose-email"> Veuillez entrer vos informations :</p>
         
         <div class="inputs inscrit">
-            <input type="text" name="nom" placeholder="Nom" required>
-            <input type="text" name="prenom" placeholder="Prénom" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Mot de passe" required>
-            <input type="password" name="password" placeholder="Confirmer mot de passe" required>
+            {% for field in form %}
+                {{ field(placeholder=field.label.text)}}
+            {% endfor %}
         </div>
         
         <div>
-            <button type="submit">S'inscrire'</button>
+            <button type="submit">S'inscrire</button>
         </div>
         </form>
 </main>

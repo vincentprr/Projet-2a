@@ -1,7 +1,8 @@
 from ..modeles.personne import Personne
 from ..core.app import login_manager
-from wtforms import StringField, PasswordField, EmailField
+from wtforms import StringField, PasswordField, EmailField, DateField
 from flask_wtf import FlaskForm
+from wtforms.widgets import TextArea
 from hashlib import sha256
 
 @login_manager.user_loader
@@ -25,9 +26,16 @@ class LoginForm(FlaskForm):
         user = get_user(email = self.email.data)
         crypt = sha256()
         crypt.update(self.password.data.encode())
-        
+
         return user if user is not None and user.password == crypt.hexdigest() else None
 
 
 class RegisterForm(FlaskForm):
-    name = StringField("Name")
+    name = StringField("Prénom")
+    last_name = StringField("Nom")
+    birth_date = DateField("Date de naissance")
+    tel = StringField("Téléphone")
+    mail = EmailField("Email")
+    password = PasswordField("Mot de passe")
+    remarque = StringField("Remarques", widget=TextArea())
+    key = StringField("Clé d'activation")
