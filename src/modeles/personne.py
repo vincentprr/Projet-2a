@@ -13,7 +13,6 @@ class Personne(db.Model, UserMixin):
     email = db.Column("emailP", db.String(60))
     mdp = db.Column("mdpP", db.String(65))
     remarques = db.Column(TEXT)
-    use_car = db.Column("useCar", TINYINT(unsigned=True))
 
     def get_id(self):
         return self.id # replace par email si ca marche pas

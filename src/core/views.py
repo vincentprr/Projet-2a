@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect
 from flask_login import login_user, current_user
 from .app import app
-from ..controler.user_controler import LoginForm
+from ..controler.user_controler import LoginForm, RegisterForm
 
 @app.route("/index.html")
 @app.route("/index")
@@ -29,8 +29,17 @@ def inscription():
     if current_user.is_authenticated:
         redirect(url_for('index'))
 
-    return render_template("inscription.html")
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        pass
+
+    return render_template("inscription.html", form=form)
 
 @app.route('/gestion')
 def gestion():
     return render_template("gestion.html")
+
+@app.route('/feuille_de_route')
+def feuille_de_route():
+    return render_template("feuilleRoute.html")
