@@ -1,5 +1,5 @@
 from ..core.database import db
-from sqlalchemy.dialects.mysql import INTEGER
+from sqlalchemy.dialects.mysql import INTEGER, TINYINT
 
 
 class Intervenant(db.Model):
@@ -10,3 +10,4 @@ class Intervenant(db.Model):
     mangeur = db.relationship("Mangeur", backref="intervenant")
     loge = db.relationship("hotel", secondary="LOGER")
     voyage = db.relationship("voyage", secondary="TRANSPORTER")
+    use_car = db.Column("useCar", TINYINT(unsigned=True))
