@@ -23,3 +23,7 @@ class LoginForm(FlaskForm):
     def get_auth_user(self):
         user = get_user(email = self.email.data)
         return user if user is not None and user.password == self.password.data else None
+
+
+class RegisterForm(FlaskForm):
+    name = StringField("Name")

@@ -1,5 +1,5 @@
 from flask import render_template, url_for, redirect
-from flask_login import login_user
+from flask_login import login_user, current_user
 from .app import app
 from ..controler.user_controler import LoginForm
 
@@ -11,6 +11,9 @@ def index():
 
 @app.route('/connexion', methods=["GET", "POST"])
 def connexion():
+    if current_user.is_authenticated:
+        redirect(url_for('index'))
+    
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -23,4 +26,7 @@ def connexion():
 
 @app.route('/inscription', methods=["GET", "POST"])
 def inscription():
+    if current_user.is_authenticated:
+        redirect(url_for('index'))
+
     return render_template("inscription.html")
