@@ -1,53 +1,79 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 id="hor">Horaires</h1>
+<h1 id="titre-hor">Horaires</h1>
 <div id="main-div">
-    <div id="mainhor">
+    <div id="gauche-hor">
         <div>
             <h2>Vendredi</h2>
-            <div>
-                <p>Matin :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
-                <p>Après-midi :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
+            <div id="text-gauche">
+                <section id="matin">
+                    <p>Matin :
+                        <input type="text" name="debut" required>
+                        heures  à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
+                <section id="aprem">
+                    <p>Après-midi :
+                        <input type="text" name="debut" required>
+                        heures  à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
             </div>
         </div>
         <br>
         <div>
             <h2>Samedi</h2>
-            <div>
-                <p>Matin :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
-                <p>Après-midi :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
+            <div id="text-gauche">
+                <section id="matin">
+                    <p>Matin :
+                        <input type="text" name="debut" required>
+                        heures  à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
+                <section id="aprem">
+                    <p>Après-midi :
+                        <input type="text" name="debut" required>
+                        heures
+                    
+                        à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
             </div>
         </div>
         <br>
         <div>
             <h2>Dimanche</h2>
-            <div>
-                <p>Matin :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
-                <p>Après-midi :</p>
-                <input type="text" name="debut" required>
-                <p>à</p>
-                <input type="text" name="fin" required>
+            <div id="text-gauche">
+                <section id="matin">
+                    <p>Matin :
+                        <input type="text" name="debut" required>
+                        heures  à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
+                <section id="aprem">
+                    <p>Après-midi :
+                        <input type="text" name="debut" required>
+                        heures  à
+                        <input type="text" name="fin" required>
+                        heures
+                    </p>
+                </section>
             </div>
         </div>
     </div>
     <div>
-        <div id="ashor">
+        <div id="droite-hor">
             <div id="explications">
                 <h3>Ici vous pouvez choisir/modifier les créneaux horaires</h3>
                 <p>Il vous suffit juste de renseigner les heures (ex : 12h00, 15h30).</p>

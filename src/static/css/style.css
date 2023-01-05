@@ -297,13 +297,13 @@ form button {
     }
 }
 
-#hor {
+#titre-hor {
     margin-top: 2vh;
     color: #FBBE3B;
     text-align: center;
 }
 
-#mainhor h2 {
+#gauche-hor h2 {
     width: 8em;
     height: 1.2em;
     font-family: 'Roboto', sans-serif;
@@ -317,12 +317,12 @@ form button {
     text-indent: 2vw;
 }
 
-#mainhor {
+#gauche-hor {
     flex-wrap: wrap;
-    flex-basis: 70%;
+    flex-basis: 100%;
 }
 
-#mainhor p{
+#gauche-hor p {
     font-size: 1.5vw;
     color: white;
     text-align: justify;
@@ -330,7 +330,7 @@ form button {
     margin: 0;
 }
 
-#ashor {
+#droite-hor {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2vh;
@@ -366,28 +366,66 @@ form button {
     margin: 0;
     background-color: #262F3A;
     border-radius: 10px;
-    border-color: #262F3A;
+    border: none;
     min-width: 12rem;
     margin-top: 2vh;
     margin-right: 20vw;
     margin-bottom: 20vh;
     color: #fff;
-    font-size: 1vw;
+    font-size: 2vw;
 }
 
 #type input {
-    margin: 0.5vw;
-    font-family: 'Roboto', sans-serif;
-    font-size: x-large;
-    color: #FBBE3B;
-    background-color: #262F3A;
-    font-style: italic;
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
     text-align: center;
-    border: none;
-    border-radius: 1em;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #FBBE3B;
+    background: #262F3A;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #FBBE3B;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #FBBE3B;
 }
 
 #explications p {
     font-size: 1vw;
     color: #fff;
+}
+
+#text-gauche {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    margin: 0;
+}
+
+#matin {
+    flex-basis: 100%;
+    margin: 0;
+}
+
+#aprem {
+    flex-basis: 100%;
+    margin: 0;
+}
+
+#gauche-hor input {
+    border-radius: 1em;
+    border: none;
+    background-color: #3e4349;
+    color: #fff;
+    font-size: 1vw;
+    padding: 0.5vw;
+    width: 3vw;
+    text-align: right;
+}
+
+#matin p {
+    margin-right: 1vw;
 }
