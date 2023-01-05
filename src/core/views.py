@@ -12,7 +12,7 @@ def index():
 @app.route('/connexion', methods=["GET", "POST"])
 def connexion():
     if current_user.is_authenticated:
-        redirect(url_for('index'))
+        redirect(url_for('feuille_de_route'))
     
     form = LoginForm()
 
@@ -20,7 +20,7 @@ def connexion():
         user = form.get_auth_user()
         if user is not None:
             login_user(user)
-            return redirect(url_for('index'))
+            return redirect(url_for('feuille_de_route'))
 
     return render_template("connexion.html", form=form)
 
@@ -42,7 +42,7 @@ def gestion():
 
 @app.route('/feuille_de_route')
 def feuille_de_route():
-    return render_template("feuilleRoute.html")
+    return render_template("feuilleRoute.html", current_user)
 
 @app.route('/js/main')
 def main_js():
