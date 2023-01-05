@@ -43,3 +43,11 @@ def gestion():
 @app.route('/feuille_de_route')
 def feuille_de_route():
     return render_template("feuilleRoute.html")
+
+@app.route('/js/main')
+def main_js():
+    return render_template('js/main.js')
+
+@app.route('/js/register')
+def register_js():
+    return render_template('js/register.js')
