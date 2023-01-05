@@ -39,3 +39,7 @@ def inscription():
 @app.route('/gestion')
 def gestion():
     return render_template("gestion.html")
+
+@app.route('/feuille_de_route')
+def feuille_de_route():
+    return render_template("feuilleRoute.html")
