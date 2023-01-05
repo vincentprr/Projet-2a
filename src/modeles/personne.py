@@ -1,7 +1,8 @@
 from ..core.database import db
 from sqlalchemy.dialects.mysql import TINYINT, TEXT, INTEGER
+from flask_login import UserMixin
 
-class Personne(db.Model):
+class Personne(db.Model, UserMixin):
     __tablename__ = "PERSONNE"
     id = db.Column("idP", INTEGER(unsigned=True), primary_key=True)
     nom = db.Column("nomP", db.String(42))
@@ -13,3 +14,6 @@ class Personne(db.Model):
     mdp = db.Column("mdpP", db.String(65))
     remarques = db.Column(TEXT)
     use_car = db.Column("useCar", TINYINT(unsigned=True))
+
+    def get_id(self):
+        return self.id # replace par email si ca marche pas

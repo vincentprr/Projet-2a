@@ -2,7 +2,7 @@
 
 {% block content %}
 <main>
-    <form> 
+    <form method="post" action="{{ url_for('inscription') }}"> 
         <h1>S'inscrire</h1>
         <p class="choose-email"> Veuillez entrer vos informations :</p>
         
@@ -12,9 +12,7 @@
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Mot de passe" required>
             <input type="password" name="password" placeholder="Confirmer mot de passe" required>
-
         </div>
-        
         
         <div>
             <button type="submit">S'inscrire'</button>
