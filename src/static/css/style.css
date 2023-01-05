@@ -25,8 +25,6 @@ body {
 .titretop img {
     width: auto;
     height: 7.5vh;
-
-
 }
 
 .nomfest {
@@ -107,6 +105,7 @@ main {
     margin: 2vw;
     background-color: #FBBE3B;
     transition: transform 0.5s;
+    box-shadow: 0 0.8em 0.6em rgba(0, 0, 0, 0.2);
 
 }
 
@@ -127,6 +126,7 @@ main {
     transform: scale(1.1);
     filter: grayscale(0%);
     box-shadow: 0 0.8em 0.6em rgba(0, 0, 0, 0.2);
+    filter: grayscale(0%) ;
 
 
 }
