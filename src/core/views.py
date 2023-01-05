@@ -42,7 +42,8 @@ def gestion():
 
 @app.route('/feuille_de_route')
 def feuille_de_route():
-    return render_template("feuilleRoute.html", current_user)
+    user = current_user
+    return render_template("feuilleRoute.html", user)
 
 @app.route('/js/main')
 def main_js():
