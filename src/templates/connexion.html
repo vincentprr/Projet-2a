@@ -12,7 +12,7 @@
             {{ form.password(placeholder="Mot de passe") }}
         </div>
         
-        <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un.</p>
+        <a href="{{url_for('inscription')}}"  ><p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un.</p></a>
         <div>
             <button type="submit">Se connecter</button>
         </div>

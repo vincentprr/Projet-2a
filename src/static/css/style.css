@@ -30,6 +30,12 @@ body {
     height: 7.5vh;
 }
 
+.titretop img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    
+}
+
 .nomfest {
     display: flex;
     flex-wrap: nowrap;
@@ -324,6 +330,9 @@ footer {
     width: 100%;
     font-family: "Poppins", sans-serif;
     justify-content: center;
+  }
+  .wrapper p {
+    margin-left: 10px;
   }
   
   .wrapper .icon {
