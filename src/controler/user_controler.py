@@ -10,7 +10,8 @@ def get_user_by_id(id : int) -> Personne or None:
     return Personne.query.get(id)
 
 def get_user(**kwargs) -> Personne or None:
-    return Personne.query.filter_by(kwargs).first()
+    print(kwargs)
+    return Personne.query.filter_by(**kwargs).first()
 
 def get_users(**kwargs) -> list or None:
     if len(kwargs) == 0:
@@ -23,11 +24,11 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password')
 
     def get_auth_user(self):
-        user = get_user(email = self.email.data)
+        user = get_user(email=self.email.data)
         crypt = sha256()
         crypt.update(self.password.data.encode())
 
-        return user if user is not None and user.password == crypt.hexdigest() else None
+        return user if user is not None and user.mdp == crypt.hexdigest() else None
 
 
 class RegisterForm(FlaskForm):
