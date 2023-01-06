@@ -605,3 +605,21 @@ td {
 .btn-edit:hover, .btn-delete:hover {
     cursor: pointer;
 }
+
+.p-username {
+    color: #FBBE3B;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1rem;
+    text-align: right;
+}
+
+.div-username {
+    display: flex;
+    margin-left: auto;
+    padding-right: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 0 30px;
+}

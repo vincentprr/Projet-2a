@@ -11,13 +11,24 @@
         <a href="/"><button class="btn">
             Participants
         </button></a>
-        <a class="fancy" href="connexion">
+        {% if not current_user.is_authenticated %}
+        <a class="fancy" href="{{ url_for('connexion') }}">
             <span class="top-key"></span>
             <span class="text">Connexion</span>
             <span class="bottom-key-1"></span>
             <span class="bottom-key-2"></span>
         </a>
-        
+        {% else %}
+        <div class="div-username">
+            <p class="p-username">{{ current_user.prenom }} {{ current_user.nom }}</p>
+            <a class="fancy" href="{{ url_for('deconnexion') }}">
+                <span class="top-key"></span>
+                <span class="text">Deconnexion</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+            </a>
+        </div>
+        {% endif %}
     </div>
 
     <!-- <div class="topnav" id="myTopnav">

@@ -1,5 +1,5 @@
 from flask import render_template, url_for, redirect
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm
 
@@ -12,7 +12,7 @@ def index():
 @app.route('/connexion', methods=["GET", "POST"])
 def connexion():
     if current_user.is_authenticated:
-        redirect(url_for('feuille_de_route'))
+        return redirect(url_for('feuille_de_route'))
     
     form = LoginForm()
 
@@ -24,10 +24,16 @@ def connexion():
 
     return render_template("connexion.html", form=form)
 
+@app.route('/deconnexion')
+@login_required
+def deconnexion():
+    logout_user()
+    return redirect(url_for('index'))
+
 @app.route('/inscription', methods=["GET", "POST"])
 def inscription():
     if current_user.is_authenticated:
-        redirect(url_for('index'))
+        return redirect(url_for('index'))
 
     form = RegisterForm()
 
@@ -37,10 +43,12 @@ def inscription():
     return render_template("inscription.html", form=form)
 
 @app.route('/gestion')
+@login_required
 def gestion():
     return render_template("gestion.html")
 
 @app.route('/feuille_de_route')
+@login_required
 def feuille_de_route():
     return render_template("feuilleRoute.html")
 
