@@ -2,6 +2,7 @@ from flask import render_template, url_for, redirect
 from flask_login import login_user, current_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm
+from ..controler.intervenant_controler import get_intervenant
 
 @app.route("/index.html")
 @app.route("/index")
@@ -43,7 +44,8 @@ def gestion():
 @app.route('/feuille_de_route')
 def feuille_de_route():
     user = current_user
-    return render_template("feuilleRoute.html", user)
+    intervenant = get_intervenant(idP = user.idP)
+    return render_template("feuilleRoute.html", user = user, intervenant = intervenant)
 
 @app.route('/js/main')
 def main_js():
