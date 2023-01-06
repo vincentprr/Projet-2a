@@ -5,9 +5,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-y: scroll;
     scrollbar-color: yellow black;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Path: nav.css */
@@ -317,9 +314,11 @@ footer {
     background-color: #FBBE3B;
     display: flex;
     flex-wrap: nowrap;
+
     justify-content: left;
     
     margin-top: auto;
+
 }
 
 /* reseau sociaux footer */
@@ -605,3 +604,83 @@ td {
 .btn-edit:hover, .btn-delete:hover {
     cursor: pointer;
 }
+
+h3 {
+    width: 8em;
+    height: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    color: #FBBE3B;
+    background-color: #262F3A;
+    font-style: italic;
+    text-align: justify;
+    padding: 1vw;
+    border-bottom-right-radius: 1em;
+    text-indent: 2vw;
+    }
+
+#bord {
+    border-bottom: 2px solid #FBBE3B;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#jour {
+    background-color: black;
+    color : white;
+    border-radius: 1vw;
+    border-color: black;
+    text-align: justify;
+    font-weight: bold;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 0.5em;
+    }
+
+#hbrgt {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    }
+
+.p4 {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 1vw;
+    font-size: 2vh;
+}
+
+.p3 {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 1vw;
+    font-size: 2vh;
+    margin-left: 10%;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 1vw;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 2vh;
+    }
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #374352;
+    }
+
+tr {
+    border: 2px solid #FBBE3B;
+    }
+
+td {
+    border: 2px solid #FBBE3B;
+    padding: 1vw;
+    color : white;
+    }
