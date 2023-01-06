@@ -3,7 +3,7 @@
 {% block content %}
 <section>
     <p>
-        Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
+        Monsieur/Madame {{user.nom}} {{user.prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
         BD.BOUM du {{date}}.
     </p>
 </section>
@@ -12,12 +12,12 @@
         Transport
     </h3>
     <p>
-        Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
+        Vous arrivez en {{transport}} le {{intervenant.arrive}}.
     </p>
     <div class="bordure" id="bord">
     </div>
     <p>
-        Vous repartez le {{jour_depart}} à {{heure_depart}}.
+        Vous repartez le {{intervenant.depart}}.
     </p>
 </section>
 <section>
@@ -34,7 +34,7 @@
             <option valeur="dim">Dimanche</option>
         </select>
         <div class="p4">
-            , vous avez réservé {{type_chambre}} à {{hotel}}.
+            , vous avez réservé {{type_chambre}} à {{intervenant.loge}}.
         </div>
     </section>
 
