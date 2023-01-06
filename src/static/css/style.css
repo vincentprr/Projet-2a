@@ -18,13 +18,19 @@ body {
     align-items: center;
 }
 
-.titretop a {
+.titretop a:first-child {
     margin-left: 5%;
 }
 
 .titretop img {
     width: auto;
     height: 7.5vh;
+}
+
+.titretop img:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    
 }
 
 .nomfest {
@@ -47,33 +53,17 @@ body {
 .topnav {
     overflow: hidden;
     background-color: #374352;
-    margin-left: 1vw;
-    margin-right: 1vw;
-    border-radius: 0px 0px 2vw 2vw;
+
+    
 }
 
-.topnav a {
-    float: right;
-    display: block;
-    color: #FBBE3B;
-    text-align: center;
-    padding: 1vw 1vw;
-    text-decoration: none;
-    font-size: 1.3vw;
-    padding-right: 6%;
-    transition: 0.3s;
-}
 
 .details {
     margin-right: 30%;
 }
 
 
-.topnav a:hover {
-    background-color: #FBBE3B;
-    color: #374352;
-    border-radius: 3vw;
-}
+
 
 .topnav .icon {
     display: none;
@@ -82,10 +72,172 @@ body {
 .icon img {
     width: 5vw;
     height: 5vw;
+
 }
 
+/* bouton du menu */
+
+.btn {
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: #ffedd3;
+    text-transform: uppercase;
+    position: relative;
+    transition: .5s ease;
+  }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffc506;
+    transition: .5s ease;
+  }
+  
+  .btn:hover {
+    color: #ffc506;
+    transition-delay: .5s;
+  }
+  
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: #ffc506;
+    transition: .4s ease;
+    z-index: -1;
+  }
+  
+  .btn:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
 
 
+/* bouton du menu */
+
+/* se connecter qui bouge */
+
+.fancy {
+    background-color: transparent;
+    border: 2px solid  #FBBE3B;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1.25em 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+
+   }
+   
+   .fancy::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background:  #FBBE3B;
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: background 0.3s linear, width 0.3s linear;
+   }
+   
+   .fancy .text {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+    padding-left: 2em;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:  aliceblue;
+   }
+   
+   .fancy .top-key {
+    height: 2px;
+    width: 1.5625rem;
+    top: -2px;
+    left: 0.625rem;
+    position: absolute;
+    background: #374352;
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+   }
+   
+   .fancy .bottom-key-1 {
+    height: 2px;
+    width: 1.5625rem;
+    right: 1.875rem;
+    bottom: -2px;
+    position: absolute;
+    background: #374352;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .fancy .bottom-key-2 {
+    height: 2px;
+    width: 0.625rem;
+    right: 0.625rem;
+    bottom: -2px;
+    position: absolute;
+    background: #374352;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .fancy:hover {
+    color: white;
+    background:  #FBBE3B;
+   }
+   
+   .fancy:hover::before {
+    width: 0.9375rem;
+    background: #374352;
+   }
+   
+   .fancy:hover .text {
+    color: #374352;
+    padding-left: 1.5em;
+   }
+   
+   .fancy:hover .top-key {
+    left: -2px;
+    width: 0px;
+   }
+   
+   .fancy:hover .bottom-key-1,
+    .fancy:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+   }
+
+/* se connecter qui bouge */
 
 /* Path: nav.css */
 
@@ -162,24 +314,103 @@ footer {
     background-color: #FBBE3B;
     display: flex;
     flex-wrap: nowrap;
+
+    justify-content: left;
+    
+    margin-top: auto;
+
+}
+
+/* reseau sociaux footer */
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+    height: 70px;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
     justify-content: center;
-
-    margin-top: 2vh;
-}
-
-footer a {
-    height: 3vh;
-}
-
-footer img {
-    height: 3vh;
-    margin-right: 1vw;
-}
-
-footer p {
-    float: right;
-    font-size: 1.3vw;
-}
+  }
+  .wrapper p {
+    margin-left: 10px;
+  }
+  
+  .wrapper .icon {
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877F2;
+    color: #fff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+    background: #1DA1F2;
+    color: #fff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #fff;
+  }
+  
+  
 
 
 
