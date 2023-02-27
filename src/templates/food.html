@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <form method="post" action="{{ url_for('inscription') }}">
+        {{ form.hidden_tag() }}
+        <h1>S'inscrire</h1>
+        <p class="choose-email"> Veuillez entrer vos informations de repas :</p>
+        
+        <div class="inputs inscrit">
+            
+        </div>
+        
+        <div>
+            <button type="submit">S'inscrire</button>
+        </div>
+        </form>
+</main>
+{% endblock %}
