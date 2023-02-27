@@ -3,7 +3,7 @@ from .database import db, create_tables
 from ..modeles.personne import Personne
 from hashlib import sha256
 from ..core.utils import crypt
-from ..controler.food_controleur import create_restaurant
+from ..controler.food_controleur import create_restaurant, create_launch
 
 @app.cli.command()
 def syncdb():
@@ -28,3 +28,5 @@ def createsamplefoods():
     create_restaurant("Le Saint Jean", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
     create_restaurant("Burggy Funny", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
     create_restaurant("Chicken Douceur", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
+
+    create_launch(1)
