@@ -81,7 +81,8 @@ def food():
     form = RepasForm()
 
     if form.validate_on_submit():
-        
+        if form.jeudiM.data:
+            create_eat()
 
     return render_template("food.html", form=form)
 

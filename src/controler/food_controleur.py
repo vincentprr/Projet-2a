@@ -3,6 +3,7 @@ from wtforms import BooleanField
 from ..modeles.restaurant import Restaurant
 from ..modeles.repas import Repas
 from ..modeles.manger import Manger
+from ..modeles.demande_repas import DemandeRepas
 from ..core.database import db
 from ..controler.user_controler import get_user_by_id
 
@@ -30,7 +31,7 @@ def create_launch(id_restaurant:int, day:str, midi:bool) -> Repas or None:
 
     return repas
 
-def create_eat(id_mangeur:int, id_repas:int or None = None) -> Manger or None:
+def create_eat(id_mangeur:int, id_repas:int) -> Manger or None:
     manger = None
     mangeur = get_user_by_id(id_mangeur)
 
@@ -42,6 +43,17 @@ def create_eat(id_mangeur:int, id_repas:int or None = None) -> Manger or None:
             db.session.commit()
 
     return manger
+
+def create_demande_repas(id_mangeur:int, day:str, midi:bool) -> DemandeRepas or None:
+    demande = None
+    mangeur = get_user_by_id(id_mangeur)
+
+    if mangeur != None and mangeur.mangeur != None:
+        demande = DemandeRepas(idP=id_mangeur, jour=day, estMidi=midi)
+        db.session.add(demande)
+        db.session.commit()
+
+    return demande
 
 class RepasForm(FlaskForm):
     jeudiM = BooleanField("Midi")
