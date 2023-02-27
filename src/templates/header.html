@@ -6,6 +6,9 @@
             Accueil
         </button></a>
         {% if not current_user.is_authenticated %}
+        <a href="{{url_for("inscription")}}"><button class="btn">
+            Inscription
+        </button></a>
         <a class="fancy" href="{{ url_for('connexion') }}">
             <span class="top-key"></span>
             <span class="text">Connexion</span>
