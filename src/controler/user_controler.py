@@ -1,9 +1,10 @@
 from ..modeles.personne import Personne
 from ..core.app import login_manager
+from ..core.database import db
 from wtforms import StringField, PasswordField, EmailField, DateField
 from flask_wtf import FlaskForm
 from wtforms.widgets import TextArea
-from hashlib import sha256
+from ..core.utils import crypt
 
 @login_manager.user_loader
 def get_user_by_id(id : int) -> Personne or None:
@@ -18,6 +19,11 @@ def get_users(**kwargs) -> list or None:
         return Personne.query.all()
     else:
         return Personne.query.filter_by(**kwargs).all()
+    
+def create_user(name:str, last_name:str, birth_date:str, tel:str, 
+                mail:str, password:str, remarque:str, typeId:int):
+    db.session.add(Personne(nom=last_name, prenom=name, typeId=typeId, date_naissance=birth_date,
+                            tel=tel, email=mail, mdp=crypt(password)))
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
@@ -25,11 +31,7 @@ class LoginForm(FlaskForm):
 
     def get_auth_user(self):
         user = get_user(email=self.email.data)
-        crypt = sha256()
-        crypt.update(self.password.data.encode())
-
-        return user if user is not None and user.mdp == crypt.hexdigest() else None
-
+        return user if user is not None and user.mdp == crypt(self.password.data) else None
 
 class RegisterForm(FlaskForm):
     name = StringField("Prénom")
