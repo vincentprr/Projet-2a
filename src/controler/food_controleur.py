@@ -17,12 +17,11 @@ def create_restaurant(name:str, openM:str, endM:str, openS:str, endS:str) -> Res
 def create_launch(id_restaurant:int, day:str, midi:bool) -> Repas or None:
     repas = None
     restaurant = get_restaurant_by_id(id_restaurant)
-    
+
     if restaurant != None:
         repas = Repas(jour=day, estMidi=midi, idRest=id_restaurant)
         db.session.add(repas)
         db.session.commit()
-        res = True
 
     return repas
 
