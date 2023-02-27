@@ -9,12 +9,14 @@
         <a href="{{url_for("inscription")}}"><button class="btn">
             Inscription
         </button></a>
-        <a class="fancy" href="{{ url_for('connexion') }}">
-            <span class="top-key"></span>
-            <span class="text">Connexion</span>
-            <span class="bottom-key-1"></span>
-            <span class="bottom-key-2"></span>
-        </a>
+        <div class="div-username">
+            <a class="fancy" href="{{ url_for('connexion') }}">
+                <span class="top-key"></span>
+                <span class="text">Connexion</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+            </a>
+        </div>
         {% else %}
         <a href="{{url_for("gestion")}}"><button class="btn">
             Gestion
