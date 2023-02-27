@@ -23,7 +23,8 @@ def get_users(**kwargs) -> list or None:
 def create_user(name:str, last_name:str, birth_date:str, tel:str, 
                 mail:str, password:str, remarque:str, typeId:int):
     db.session.add(Personne(nom=last_name, prenom=name, typeId=typeId, date_naissance=birth_date,
-                            tel=tel, email=mail, mdp=crypt(password)))
+                            tel=tel, email=mail, mdp=crypt(password), remarque=remarque))
+    db.session.commit()
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
