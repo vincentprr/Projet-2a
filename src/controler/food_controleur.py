@@ -44,11 +44,11 @@ def create_eat(id_mangeur:int, id_repas:int) -> Manger or None:
     return manger
 
 class RepasForm(FlaskForm):
-    jeudiM = BooleanField()
-    jeudiS = BooleanField()
-    vendrediM = BooleanField()
-    vendrediS = BooleanField()
-    samediM = BooleanField()
-    samediS = BooleanField()
-    dimancheM = BooleanField()
-    dimancheS = BooleanField()
+    jeudiM = BooleanField("Midi")
+    jeudiS = BooleanField("Soir")
+    vendrediM = BooleanField("Midi")
+    vendrediS = BooleanField("Soir")
+    samediM = BooleanField("Midi")
+    samediS = BooleanField("Soir")
+    dimancheM = BooleanField("Midi")
+    dimancheS = BooleanField("Soir")

@@ -80,6 +80,9 @@ def food():
     
     form = RepasForm()
 
+    if form.validate_on_submit():
+        pass
+
     return render_template("food.html", form=form)
 
 @app.route('/gestion')
