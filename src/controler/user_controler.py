@@ -1,6 +1,7 @@
 from ..modeles.personne import Personne
 from ..modeles.admin import Admin
 from ..modeles.exposant import Exposant
+from ..modeles.mangeur import Mangeur
 from ..core.app import login_manager
 from ..core.database import db
 from wtforms import StringField, PasswordField, EmailField, DateField
@@ -45,6 +46,17 @@ def create_exposant(name:str, last_name:str, birth_date:str, tel:str,
                 mail, password, remarque, TYPE_EXPOSANT)
     db.session.add(Exposant(idP=p.id))
     db.session.commit()
+
+def create_mangeur(id_personne:int) -> Mangeur or None:
+    mangeur = None
+    personne = get_user_by_id(id_personne)
+
+    if personne != None:
+        mangeur = Mangeur(idP=id_personne)
+        db.session.add(mangeur)
+        db.session.commit()
+
+    return mangeur
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
