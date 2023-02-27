@@ -3,7 +3,7 @@ from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant
 from ..controler.cle_controler import get_key
-from ..controler.food_controleur import RepasForm, create_eat
+from ..controler.food_controleur import RepasForm, create_demande_repas
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -52,7 +52,8 @@ def inscription():
                 create_exposant(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
             else:
-                print("Redirect food...")
+                redirect(url_for("food", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
+                                 mail=form.mail.data, password=form.password.data, remarque=form.remarque.data))
         else:
             print("Key not found...")
     elif len(form.errors) > 0:
@@ -81,8 +82,7 @@ def food():
     form = RepasForm()
 
     if form.validate_on_submit():
-        if form.jeudiM.data:
-            create_eat()
+        pass
 
     return render_template("food.html", form=form)
 
