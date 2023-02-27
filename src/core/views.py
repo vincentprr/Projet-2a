@@ -3,7 +3,7 @@ from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant
 from ..controler.cle_controler import get_key
-from ..controler.food_controleur import RepasForm
+from ..controler.food_controleur import RepasForm, create_eat
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -74,14 +74,14 @@ def food():
     except:
         return redirect(url_for('index'))
     
-    # key = get_key(key_str)
-    # if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
-    #     return redirect(url_for('index'))
+    key = get_key(key_str)
+    if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
+        return redirect(url_for('index'))
     
     form = RepasForm()
 
     if form.validate_on_submit():
-        pass
+        
 
     return render_template("food.html", form=form)
 

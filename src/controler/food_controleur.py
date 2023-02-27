@@ -30,7 +30,7 @@ def create_launch(id_restaurant:int, day:str, midi:bool) -> Repas or None:
 
     return repas
 
-def create_eat(id_mangeur:int, id_repas:int) -> Manger or None:
+def create_eat(id_mangeur:int, id_repas:int or None = None) -> Manger or None:
     manger = None
     mangeur = get_user_by_id(id_mangeur)
 
