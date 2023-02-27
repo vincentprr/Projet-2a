@@ -24,9 +24,9 @@ def createsampleuser():
 
 @app.cli.command()
 def createsamplefoods():
-    create_restaurant("Le Poté", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
-    create_restaurant("Le Saint Jean", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
-    create_restaurant("Burggy Funny", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
-    create_restaurant("Chicken Douceur", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
+    rest1 = create_restaurant("Le Poté", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
+    rest2 = create_restaurant("Le Saint Jean", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
+    rest3 = create_restaurant("Burggy Funny", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
+    rest4 = create_restaurant("Chicken Douceur", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
 
-    create_launch(1)
+    create_launch(rest1.idRest, "")
