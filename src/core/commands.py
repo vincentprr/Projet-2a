@@ -4,6 +4,7 @@ from ..modeles.personne import Personne
 from hashlib import sha256
 from ..core.utils import crypt
 from ..controler.food_controleur import create_restaurant, create_launch
+from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
 
 @app.cli.command()
 def syncdb():
@@ -29,4 +30,14 @@ def createsamplefoods():
     rest3 = create_restaurant("Burggy Funny", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
     rest4 = create_restaurant("Chicken Douceur", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
 
-    create_launch(rest1.idRest, "")
+    create_launch(rest1.idRest, JEUDI, True)
+    create_launch(rest1.idRest, JEUDI, False)
+    create_launch(rest1.idRest, VENDREDI, True)
+
+    create_launch(rest2.idRest, VENDREDI, False)
+    create_launch(rest2.idRest, SAMEDI, False)
+
+    create_launch(rest3.idRest, SAMEDI, True)
+
+    create_launch(rest4.idRest, DIMANCHE, True)
+    create_launch(rest4.idRest, JEUDI, True)
