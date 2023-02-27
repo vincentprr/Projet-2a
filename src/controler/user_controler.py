@@ -17,7 +17,7 @@ def get_users(**kwargs) -> list or None:
     if len(kwargs) == 0:
         return Personne.query.all()
     else:
-        return Personne.query.filter_by(kwargs).all()
+        return Personne.query.filter_by(**kwargs).all()
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
