@@ -1,7 +1,7 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, request
 from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
-from ..controler.user_controler import LoginForm, RegisterForm
+from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant
 from ..controler.cle_controler import get_key
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
@@ -44,14 +44,40 @@ def inscription():
     if form.validate_on_submit():
         key = get_key(form.key.data)
         if key != None:
-            if key.typeUser == TYPE_ADMIN or key.typeUser == TYPE_EXPOSANT:
-                print("Submit")
+            if key.typeUser == TYPE_ADMIN: # TO DO message c ok
+                create_admin(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
+                             form.password.data, form.remarque.data)
+            elif key.typeUser == TYPE_EXPOSANT:
+                create_exposant(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
+                             form.password.data, form.remarque.data)
             else:
                 print("Redirect food...")
         else:
-            print("Key no found...")
+            print("Key not found...")
+    elif len(form.errors) > 0:
+        print(form.errors)
 
     return render_template("inscription.html", form=form)
+
+@app.route("/food", methods=["GET", "POST"])
+def food():
+    try:
+        name = request.args.get("name", type=str)
+        last_name = request.args.get("last", type=str)
+        birth_date = request.args.get("birth", type=str)
+        tel = request.args.get("tel", type=str)
+        mail = request.args.get("mail", type=str)
+        password = request.args.get("password", type=str)
+        remarque = request.args.get("remarque", type=str)
+        key_str = request.args.get("key", type=str)
+    except:
+        return redirect(url_for('index'))
+    
+    key = get_key(key_str)
+    if key is None:
+        return redirect(url_for('index'))
+
+    pass # check all data in get params
 
 @app.route('/gestion')
 @login_required
