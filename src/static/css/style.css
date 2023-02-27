@@ -55,9 +55,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #374352;
-
-    
+    background-color: #374352;    
 }
 
 
@@ -89,6 +87,7 @@ body {
     text-transform: uppercase;
     position: relative;
     transition: .5s ease;
+    cursor: pointer;
   }
   
   .btn::before {
