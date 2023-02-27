@@ -7,9 +7,29 @@
         <h1>S'inscrire</h1>
         <p class="choose-email"> Veuillez entrer vos informations de repas :</p>
         
-        <div class="inputs inscrit">
-            {{ form.name(placeholder=form.name.label.text) }}
-        </div>
+        <p>Jeudi :</p>
+        {{form.jeudiM.label()}}
+        {{ form.jeudiM() }}
+        {{form.jeudiS.label()}}
+        {{ form.jeudiS() }}
+
+        <p>Vendredi :</p>
+        {{form.vendrediM.label()}}
+        {{ form.vendrediM() }}
+        {{form.vendrediS.label()}}
+        {{ form.vendrediS() }}
+
+        <p>Samedi :</p>
+        {{form.samediM.label()}}
+        {{ form.samediM() }}
+        {{form.samediS.label()}}
+        {{ form.samediS() }}
+
+        <p>Dimanche :</p>
+        {{form.dimancheM.label()}}
+        {{ form.dimancheM() }}
+        {{form.dimancheS.label()}}
+        {{ form.dimancheS() }}
         
         <div>
             <button type="submit">S'inscrire</button>

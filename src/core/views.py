@@ -74,9 +74,9 @@ def food():
     except:
         return redirect(url_for('index'))
     
-    key = get_key(key_str)
-    if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
-        return redirect(url_for('index'))
+    # key = get_key(key_str)
+    # if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
+    #     return redirect(url_for('index'))
     
     form = RepasForm()
 
