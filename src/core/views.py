@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request
 from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
-from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant
+from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff
 from ..controler.cle_controler import get_key
 from ..controler.food_controleur import RepasForm
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
@@ -84,7 +84,7 @@ def food():
 
     if form.validate_on_submit():
         if key.typeUser == TYPE_STAFF:
-
+            create_staff(name, last_name, birth_date, tel, mail, password, remarque)
             pass # register mangeur et ses repas
         else:
             pass # suite
