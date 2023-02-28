@@ -1,5 +1,6 @@
 from ..core.database import db
 from sqlalchemy.dialects.mysql import SMALLINT, TEXT, INTEGER
+from sqlalchemy.orm import backref
 
 class Hotel(db.Model):
     __tablename__ = "HOTEL"
@@ -9,4 +10,4 @@ class Hotel(db.Model):
     telHotel = db.Column("telHotel",TEXT)
     mailHotel = db.Column("mailHotel",TEXT)
     capaciteHotel = db.Column("capaciteHotel",SMALLINT(unsigned=True))
-    loges = db.relationship("intervenant", secondary="INTERVENANT", uselist=False)
+    loges = db.relationship("Loger", backref=backref("hotel", uselist=False))
