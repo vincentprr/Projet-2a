@@ -3,7 +3,7 @@ from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant
 from ..controler.cle_controler import get_key
-from ..controler.food_controleur import RepasForm, create_demande_repas
+from ..controler.food_controleur import RepasForm
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -63,23 +63,24 @@ def inscription():
 
 @app.route("/food", methods=["GET", "POST"])
 def food():
-    try:
-        name = request.args.get("name", type=str)
-        last_name = request.args.get("last", type=str)
-        birth_date = request.args.get("birth", type=str)
-        tel = request.args.get("tel", type=str)
-        mail = request.args.get("mail", type=str)
-        password = request.args.get("password", type=str)
-        remarque = request.args.get("remarque", type=str)
-        key_str = request.args.get("key", type=str)
-    except:
-        return redirect(url_for('index'))
+    # try:
+    #     name = request.args.get("name", type=str)
+    #     last_name = request.args.get("last", type=str)
+    #     birth_date = request.args.get("birth", type=str)
+    #     tel = request.args.get("tel", type=str)
+    #     mail = request.args.get("mail", type=str)
+    #     password = request.args.get("password", type=str)
+    #     remarque = request.args.get("remarque", type=str)
+    #     key_str = request.args.get("key", type=str)
+    # except:
+    #     return redirect(url_for('index'))
     
-    key = get_key(key_str)
-    if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
-        return redirect(url_for('index'))
+    # key = get_key(key_str)
+    # if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
+    #     return redirect(url_for('index'))
     
     form = RepasForm()
+    form.setup_choices()
 
     if form.validate_on_submit():
         pass
