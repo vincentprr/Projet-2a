@@ -2,6 +2,7 @@ from ..modeles.personne import Personne
 from ..modeles.admin import Admin
 from ..modeles.exposant import Exposant
 from ..modeles.mangeur import Mangeur
+from ..modeles.staff import Staff
 from ..core.app import login_manager
 from ..core.database import db
 from wtforms import StringField, PasswordField, EmailField, DateField
@@ -57,6 +58,14 @@ def create_mangeur(id_personne:int) -> Mangeur or None:
         db.session.commit()
 
     return mangeur
+
+def create_staff(name:str, last_name:str, birth_date:str, tel:str, 
+                mail:str, password:str, remarque:str):
+    p = create_user(name, last_name, birth_date, tel, 
+                mail, password, remarque, TYPE_STAFF)
+    create_mangeur(p.id)
+    db.session.add(Staff(idP=p.id))
+    db.session.commit()
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
