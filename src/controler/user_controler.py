@@ -60,12 +60,16 @@ def create_mangeur(id_personne:int) -> Mangeur or None:
     return mangeur
 
 def create_staff(name:str, last_name:str, birth_date:str, tel:str, 
-                mail:str, password:str, remarque:str):
+                mail:str, password:str, remarque:str) -> Staff:
     p = create_user(name, last_name, birth_date, tel, 
                 mail, password, remarque, TYPE_STAFF)
     create_mangeur(p.id)
-    db.session.add(Staff(idP=p.id))
+
+    staff = Staff(idP=p.id)
+    db.session.add(staff)
     db.session.commit()
+
+    return staff
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')

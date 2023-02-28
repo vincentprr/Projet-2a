@@ -34,16 +34,18 @@ def create_launch(id_restaurant:int, day:str, midi:bool, capacity:int) -> Repas 
 
     return repas
 
-def create_eat(id_mangeur:int, id_repas:int) -> Manger or None:
+def create_eat(id_mangeur:int, id_restaurant:int, day:str, midi:bool) -> Manger or None:
     manger = None
     mangeur = get_user_by_id(id_mangeur)
 
     if mangeur != None and mangeur.mangeur != None:
-        repas = get_repas_by_id(id_repas)
-        if repas != None:
-            manger = Manger(idP=id_mangeur, idRepas=id_repas)
-            db.session.add(manger)
-            db.session.commit()
+        restaurant = get_restaurant_by_id(id_restaurant)
+        if restaurant != None:
+            repas = restaurant.get_available_launch(day, midi)
+            if repas != None:
+                manger = Manger(idP=id_mangeur, idRepas=repas.idRepas)
+                db.session.add(manger)
+                db.session.commit()
 
     return manger
 
@@ -51,7 +53,7 @@ def get_availables_restaurants(day:str, midi:bool) -> "list[Restaurant]":
     res = []
 
     for restaurant in get_restaurants():
-        if restaurant.can_offer_launch(day, midi):
+        if restaurant.get_available_launch(day, midi) != None:
             res.append(restaurant)
 
     return res

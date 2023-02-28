@@ -3,7 +3,7 @@ from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff
 from ..controler.cle_controler import get_key
-from ..controler.food_controleur import RepasForm
+from ..controler.food_controleur import RepasForm, create_eat
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -52,8 +52,8 @@ def inscription():
                 create_exposant(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
             else:
-                redirect(url_for("food", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
-                                 mail=form.mail.data, password=form.password.data, remarque=form.remarque.data))
+                return redirect(url_for("food", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
+                                 mail=form.mail.data, password=form.password.data, remarque=form.remarque.data, key=form.key.data))
         else:
             print("Key not found...")
     elif len(form.errors) > 0:
@@ -76,7 +76,7 @@ def food():
         return redirect(url_for('index'))
     
     key = get_key(key_str)
-    if key is None or key.typeUser != TYPE_INTERVENANT or key.typeUser != TYPE_STAFF or key.typeUser != TYPE_AUTEUR:
+    if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_STAFF and key.typeUser != TYPE_AUTEUR):
         return redirect(url_for('index'))
     
     form = RepasForm()
@@ -84,8 +84,27 @@ def food():
 
     if form.validate_on_submit():
         if key.typeUser == TYPE_STAFF:
-            create_staff(name, last_name, birth_date, tel, mail, password, remarque)
-            pass # register mangeur et ses repas
+            staff = create_staff(name, last_name, birth_date, tel, mail, password, remarque)
+            
+            if int(form.restaurantJeudiM.data) > 0:
+                create_eat(staff.idP, form.restaurantJeudiM.data)
+            if int(form.restaurantJeudiS.data) > 0:
+                create_eat(staff.idP, form.restaurantJeudiS.data)
+
+            if int(form.restaurantVendrediM.data) > 0:
+                create_eat(staff.idP, form.restaurantVendrediM.data)
+            if int(form.restaurantVendrediS.data) > 0:
+                create_eat(staff.idP, form.restaurantVendrediS.data)
+
+            if int(form.restaurantSamediM.data) > 0:
+                create_eat(staff.idP, form.restaurantSamediM.data)
+            if int(form.restaurantSamediS.data) > 0:
+                create_eat(staff.idP, form.restaurantSamediS.data)
+
+            if int(form.restaurantDimancheM.data) > 0:
+                create_eat(staff.idP, form.restaurantDimancheM.data)
+            if int(form.restaurantDimancheS.data) > 0:
+                create_eat(staff.idP, form.restaurantDimancheS.data)
         else:
             pass # suite
 
