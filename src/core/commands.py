@@ -41,3 +41,7 @@ def createsamplefoods():
 
     create_launch(rest4.idRest, DIMANCHE, True, 12)
     create_launch(rest4.idRest, JEUDI, True, 12)
+
+@app.cli.command()
+def createsamplehostel():
+    pass
