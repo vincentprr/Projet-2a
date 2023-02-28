@@ -2,44 +2,47 @@
 
 {% block content %}
 <section>
-    <p>
-        Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
-        BD.BOUM du {{date}}.
-    </p>
+    <div class="contenu-route">
+        <p>
+            Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
+            BD.BOUM du {{date}}.
+        </p>
+    </div>
 </section>
-<section>
+<section class="section-route">
     <h3>
         Transport
     </h3>
-    <p>
-        Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
-    </p>
-    <div class="bordure" id="bord">
-    </div>
-    <p>
-        Vous repartez le {{jour_depart}} à {{heure_depart}}.
-    </p>
+    <div class="contenu-route">
+        <p>
+            Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
+        </p>
+        <div class="ligne">
+        </div>
+        <p>
+            Vous repartez le {{jour_depart}} à {{heure_depart}}.
+        </p>
+    </div> 
 </section>
-<section>
+<section class="section-route">
     <h3>
         Hébergement
     </h3>
-    <section id="hbrgt">
-        <div class="p3"> Le </div>
-        <select name="jour" id="jour">
-            <option valeur="mer">Mercredi</option>
-            <option valeur="je">Jeudi</option>
-            <option valeur="ven">Vendredi</option>
-            <option valeur="sam">Samedi</option>
-            <option valeur="dim">Dimanche</option>
-        </select>
-        <div class="p4">
-            , vous avez réservé {{type_chambre}} à {{hotel}}.
+        <div class="contenu-route">
+            <div class="p3"> Le
+            <select name="jour" id="jour">
+                <option valeur="mer">Mercredi</option>
+                <option valeur="je">Jeudi</option>
+                <option valeur="ven">Vendredi</option>
+                <option valeur="sam">Samedi</option>
+                <option valeur="dim">Dimanche</option>
+            </select>
+                , vous avez réservé {{type_chambre}} à {{hotel}}.
+            </div>
         </div>
-    </section>
 
 </section>
-<section>
+<section class="section-route">
     <h3>
         Restauration
     </h3>
