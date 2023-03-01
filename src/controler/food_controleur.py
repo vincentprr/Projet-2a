@@ -18,6 +18,9 @@ def get_restaurants(**kwargs) -> "list[Restaurant]":
 def get_repas_by_id(id_repas:int) -> Repas or None:
     return Repas.query.get(id_repas)
 
+def get_regime_by_id(regime_id:int) -> Regime or None:
+    return Regime.query.get(regime_id)
+
 def get_regimes(**kwargs) -> "list[Regime]":
     return Regime.query.filter_by(**kwargs).all()
 
@@ -66,6 +69,12 @@ def get_availables_restaurants(day:str, midi:bool) -> "list[Restaurant]":
             res.append(restaurant)
 
     return res
+
+def assign_regime(regime_id:int, mangeur_id:int):
+    user = get_user_by_id(mangeur_id)
+
+    if user != None and user.mangeur != None:
+        regime = get_regime_by_id(regime_id)
 
 class RepasForm(FlaskForm):
     restaurantJeudiM = SelectField("Restaurant du Jeudi midi : ", choices=[(str(-1), "Je fais autrement.")])
