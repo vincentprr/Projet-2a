@@ -268,6 +268,24 @@ main {
     transform: translateY(-0.7em);
 }
 
+.titre-contenant {
+    text-align: center;
+    font-size: 2em;
+    color: #1DA1F2;
+    font-weight: 700;
+    margin-top: 1em;
+    background-color: #262F3A;
+}
+
+.texte-contenant {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #262F3A;
+    font-weight: 700;
+    margin-top: 1em;
+    padding: 1rem;
+}
+
 #image {
     overflow: hidden;
     background-image: url(../images/accueil.jpg);
@@ -286,32 +304,16 @@ main {
 
 }
 
-.overlay {
+.image-acceuil {
     padding: 1em;
-    transition: backdrop-filter 0.3s;
     height: 100%;
     width: 100%;
     color: #ddd;
 }
 
-.overlay h1 {
-    margin-top: 0;
+.image-acceuil:hover {
+    color: #ddd;
 }
-
-.overlay:hover {
-    backdrop-filter: blur(4px);
-}
-
-.overlay>* {
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.overlay:hover>* {
-    opacity: 1;
-}
-
-
 
 footer {
     background-color: #FBBE3B;
