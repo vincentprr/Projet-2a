@@ -1,4 +1,5 @@
 from hashlib import sha256
+from wtforms import widgets, SelectMultipleField
 
 def space_between(input:str, nbr:int) -> str:
     res = ""
@@ -16,3 +17,7 @@ def crypt(text:str) -> str:
     h.update(text.encode())
 
     return h.hexdigest()
+
+class MultiCheckboxField(SelectMultipleField):
+    widget = widgets.ListWidget(prefix_label=False)
+    option_widget = widgets.CheckboxInput()

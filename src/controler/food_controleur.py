@@ -3,9 +3,11 @@ from wtforms import BooleanField, SelectField
 from ..modeles.restaurant import Restaurant
 from ..modeles.repas import Repas
 from ..modeles.manger import Manger
+from ..modeles.regime import Regime
 from ..core.database import db
 from ..controler.user_controler import get_user_by_id
 from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
+from ..core.utils import MultiCheckboxField
 
 def get_restaurant_by_id(id_restaurant:int) -> Restaurant or None:
     return Restaurant.query.get(id_restaurant)
@@ -15,6 +17,13 @@ def get_restaurants(**kwargs) -> "list[Restaurant]":
 
 def get_repas_by_id(id_repas:int) -> Repas or None:
     return Repas.query.get(id_repas)
+
+def get_regimes(**kwargs) -> "list[Regime]":
+    return Regime.query.filter_by(**kwargs).all()
+
+def create_regime(nom:str):
+    db.session.add(Regime(nomRegime=nom))
+    db.session.commit()
 
 def create_restaurant(name:str, openM:str, endM:str, openS:str, endS:str) -> Restaurant:
     restaurant = Restaurant(nomRest=name, ouvertureM=openM, fermetureM=endM, ouvertureS=openS, fermetureS=endS)
@@ -67,6 +76,7 @@ class RepasForm(FlaskForm):
     restaurantSamediS = SelectField("Restaurant du Samedi soir : ", choices=[(str(-1), "Je fais autrement.")])
     restaurantDimancheM = SelectField("Restaurant du Dimanche midi : ", choices=[(str(-1), "Je fais autrement.")])
     restaurantDimancheS = SelectField("Restaurant du Dimanche soir : ", choices=[(str(-1), "Je fais autrement.")])
+    regimes = MultiCheckboxField("Sélectionnez vos régimes si vous en avez : ", choices=[])
 
     def setup_choices(self):
         for restau in get_availables_restaurants(JEUDI, True):
@@ -92,4 +102,7 @@ class RepasForm(FlaskForm):
 
         for restau in get_availables_restaurants(DIMANCHE, False):
             self.restaurantDimancheS.choices.append((str(restau.idRest), restau.nomRest))
+
+        for regime in get_regimes():
+            self.regimes.choices.append((str(regime.idRegime), regime.nomRegime))
         

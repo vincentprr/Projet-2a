@@ -8,7 +8,7 @@ class Intervenant(db.Model):
     arrive = db.Column("arrive",db.DateTime)
     depart = db.Column("depart",db.DateTime)
     mangeur = db.relationship("Mangeur", backref="intervenant")
-    logements = db.relationship("Hotel", backref="client")
+    logements = db.relationship("Loger", backref="client")
     # voyages = db.relationship("voyage", secondary="TRANSPORTER")
     use_car = db.Column("useCar", TINYINT(unsigned=True))
 

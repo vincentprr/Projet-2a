@@ -3,7 +3,7 @@ from .database import db, create_tables
 from ..modeles.personne import Personne
 from hashlib import sha256
 from ..core.utils import crypt
-from ..controler.food_controleur import create_restaurant, create_launch
+from ..controler.food_controleur import create_restaurant, create_launch, create_regime
 from ..controler.sleep_controler import create_hotel
 from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
 
@@ -44,6 +44,15 @@ def createsamplefoods():
     create_launch(rest4.idRest, JEUDI, True, 12)
 
 @app.cli.command()
+def createsampleregime():
+    create_regime("Végétarien")
+    create_regime("Sans gluten")
+    create_regime("Sans lactose")
+    create_regime("Cannibale")
+    create_regime("Mange morts")
+
+@app.cli.command()
 def createsamplehostel():
     h1 = create_hotel("Rompiche fort", "128 rue du sommeil", "0610121314", "zzz@mail.fr", 100)
     h2 = create_hotel("Rincemax", "45 Avenue de morphé", "0666666666", "pwwwahjdors@laissemoidodozeubi.fr", 25)
+    createsampleregime()
