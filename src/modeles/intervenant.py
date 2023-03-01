@@ -1,6 +1,6 @@
 from ..core.database import db
 from sqlalchemy.dialects.mysql import INTEGER, TINYINT
-
+from .loger import Loger
 
 class Intervenant(db.Model):
     __tablename__ = "INTERVENANT"
@@ -11,3 +11,10 @@ class Intervenant(db.Model):
     logements = db.relationship("Hotel", backref="client")
     # voyages = db.relationship("voyage", secondary="TRANSPORTER")
     use_car = db.Column("useCar", TINYINT(unsigned=True))
+
+    def get_sleep(self, day:str) -> Loger or None:
+        for loger in self.logements:
+            if loger.jourLog == day:
+                return loger
+            
+        return None
