@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% include 'popup.html' %}
+
 {% block content %}
+
 <main>
     <form method="post" action="{{ url_for('inscription') }}">
         <h1>S'inscrire</h1>
@@ -13,9 +16,20 @@
         </div>
         
         <div>
-            <button type="submit">S'inscrire</button>
+            <button type="submit" class="btn1">S'inscrire</button>
         </div>
         </form>
         <script src="{{ url_for('register_js') }}"></script>
 </main>
+<script>
+    var btn1 = document.getElementById("btn1");
+    btn1.addEventListener("click", () => {
+        if(getComputedStyle(d1).display != "none"){
+            d1.style.display = "none";
+        } 
+        else {
+            d1.style.display = "block";
+        }
+})
+</script>
 {% endblock %}

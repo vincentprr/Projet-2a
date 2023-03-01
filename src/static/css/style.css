@@ -623,3 +623,13 @@ td {
     align-items: center;
     gap: 0 30px;
 }
+
+.erreur {
+    display: none;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1rem;
+    text-align: right;
+}

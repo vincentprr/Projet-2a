@@ -6,3 +6,7 @@ function displayHeader() {
         x.className = "topnav";
     }
 }
+
+function showpopup() {
+    window.open("http://urldelapageacharger.htm", "nomdelafenetrepopup", "height=XXX, width=XXX, menubar='yes|no', toolbar='yes|no', location='yes|no', status='yes|no', scrollbars='yes|no'");
+   }
