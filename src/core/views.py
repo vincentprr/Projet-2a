@@ -109,9 +109,33 @@ def food():
             for regime_id in form.regimes.data:
                 assign_regime(regime_id, staff.idP)
         else:
-            pass # suite
+            return redirect("sleep", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
+                            mail=form.mail.data, password=form.password.data, remarque=form.remarque.data, key=form.key.data, jM=form.restaurantJeudiM.data,
+                            jS=form.restaurantJeudiS.data, vM=form.restaurantVendrediM.data, vS=form.restaurantVendrediS.data,
+                            sM=form.restaurantSamediM.data, sS=form.restaurantSamediS.data, dM=form.restaurantDimancheM.data,
+                            dS=form.restaurantDimancheS.data, regimes=','.join(form.regimes.data))
 
     return render_template("food.html", form=form)
+
+@app.route("/sleep", methods=["GET", "POST"])
+def sleep():
+    try:
+        name = request.args.get("name", type=str)
+        last_name = request.args.get("last", type=str)
+        birth_date = request.args.get("birth", type=str)
+        tel = request.args.get("tel", type=str)
+        mail = request.args.get("mail", type=str)
+        password = request.args.get("password", type=str)
+        remarque = request.args.get("remarque", type=str)
+        key_str = request.args.get("key", type=str)
+    except:
+        return redirect(url_for('index'))
+    
+    key = get_key(key_str)
+    if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_STAFF and key.typeUser != TYPE_AUTEUR):
+        return redirect(url_for('index'))
+    
+    return render_template("sleep.html")
 
 @app.route('/gestion')
 @login_required
