@@ -419,6 +419,7 @@ footer {
 
 form {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     background-color: #262F3A;
     padding: 2.5rem 3.7rem;
     border-radius: 10px;
@@ -622,4 +623,51 @@ td {
     justify-content: center;
     align-items: center;
     gap: 0 30px;
+}
+
+.label-restau { 
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.input-restau {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+}
+
+.input-restau:focus {
+    outline: none;
+    border : 2px solid #FBBE3B;
+}
+
+.label-regime {
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.input-regime {
+    color : white;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    list-style: none;
+}
+
+.btn-inscrire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
