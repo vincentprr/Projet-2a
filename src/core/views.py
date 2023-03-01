@@ -157,7 +157,7 @@ def sleep():
     
     return render_template("sleep.html", form=form)
 
-@app.route("travel", methods=["GET", "POST"])
+@app.route("/travel", methods=["GET", "POST"])
 def travel():
     try:
         name = request.args.get("name", type=str)
@@ -188,7 +188,7 @@ def travel():
     if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_AUTEUR):
         return redirect(url_for('index'))
     
-    
+
 
 @app.route('/gestion')
 @login_required
