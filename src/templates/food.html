@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <h1>S'inscrire</h1>
+        <p class="choose-email"> Veuillez entrer vos informations de repas :</p>
+        
+        {{form.restaurantJeudiM.label(class="label-restau")}}
+        {{form.restaurantJeudiM(class="input-restau")}}
+        <br>
+        {{form.restaurantJeudiS.label(class="label-restau")}}
+        {{form.restaurantJeudiS(class="input-restau")}}
+        <br><br>
+        {{form.restaurantVendrediM.label(class="label-restau")}}
+        {{form.restaurantVendrediM(class="input-restau")}}
+        <br>
+        {{form.restaurantVendrediS.label(class="label-restau")}}
+        {{form.restaurantVendrediS(class="input-restau")}}
+        <br><br>
+        {{form.restaurantSamediM.label(class="label-restau")}}
+        {{form.restaurantSamediM(class="input-restau")}}
+        <br>
+        {{form.restaurantSamediS.label(class="label-restau")}}
+        {{form.restaurantSamediS(class="input-restau")}}
+        <br><br>
+        {{form.restaurantDimancheM.label(class="label-restau")}}
+        {{form.restaurantDimancheM(class="input-restau")}}
+        <br>
+        {{form.restaurantDimancheS.label(class="label-restau")}}
+        {{form.restaurantDimancheS(class="input-restau")}}
+        <br><br>
+        {{form.regimes.label(class="label-regime")}}
+        {{form.regimes(class="input-regime")}}
+        <br><br>
+        
+        <div class="btn-inscrire">
+            <button type="submit" class="inscrire">S'inscrire</button>
+        </div>
+        </form>
+</main>
+{% endblock %}
