@@ -1,3 +1,3 @@
 # File to register all modeles for the creation of the tables #
 
-from . import personne, cle, exposant, mangeur, intervenant, admin, creneau, restaurant, repas, manger, staff, hotel, loger, regime, avoir
+from . import personne, cle, exposant, mangeur, intervenant, admin, creneau, restaurant, repas, manger, staff, hotel, loger, regime, avoir, navette, voyage, transporter
