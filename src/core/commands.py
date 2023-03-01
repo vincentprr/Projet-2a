@@ -25,6 +25,14 @@ def createsampleuser():
     print("User created")
 
 @app.cli.command()
+def createsampleregime():
+    create_regime("Végétarien")
+    create_regime("Sans gluten")
+    create_regime("Sans lactose")
+    create_regime("Cannibale")
+    create_regime("Mange morts")
+
+@app.cli.command()
 def createsamplefoods():
     rest1 = create_restaurant("Le Poté", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
     rest2 = create_restaurant("La Sauce du Chef", "12:00:00", "14:00:00", "18:00:00", "23:00:00")
@@ -42,17 +50,9 @@ def createsamplefoods():
 
     create_launch(rest4.idRest, DIMANCHE, True, 12)
     create_launch(rest4.idRest, JEUDI, True, 12)
-
-@app.cli.command()
-def createsampleregime():
-    create_regime("Végétarien")
-    create_regime("Sans gluten")
-    create_regime("Sans lactose")
-    create_regime("Cannibale")
-    create_regime("Mange morts")
+    createsampleregime()
 
 @app.cli.command()
 def createsamplehostel():
     h1 = create_hotel("Rompiche fort", "128 rue du sommeil", "0610121314", "zzz@mail.fr", 100)
     h2 = create_hotel("Rincemax", "45 Avenue de morphé", "0666666666", "pwwwahjdors@laissemoidodozeubi.fr", 25)
-    createsampleregime()

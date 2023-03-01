@@ -4,6 +4,7 @@ from .app import app
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff
 from ..controler.cle_controler import get_key
 from ..controler.food_controleur import RepasForm, create_eat, assign_regime
+from ..controler.sleep_controler import SleepForm, create_loger
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -109,8 +110,8 @@ def food():
             for regime_id in form.regimes.data:
                 assign_regime(regime_id, staff.idP)
         else:
-            return redirect("sleep", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
-                            mail=form.mail.data, password=form.password.data, remarque=form.remarque.data, key=form.key.data, jM=form.restaurantJeudiM.data,
+            return redirect("sleep", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
+                            mail=mail, password=password, remarque=remarque, key=key_str, jM=form.restaurantJeudiM.data,
                             jS=form.restaurantJeudiS.data, vM=form.restaurantVendrediM.data, vS=form.restaurantVendrediS.data,
                             sM=form.restaurantSamediM.data, sS=form.restaurantSamediS.data, dM=form.restaurantDimancheM.data,
                             dS=form.restaurantDimancheS.data, regimes=','.join(form.regimes.data))
@@ -128,14 +129,37 @@ def sleep():
         password = request.args.get("password", type=str)
         remarque = request.args.get("remarque", type=str)
         key_str = request.args.get("key", type=str)
+        jM = request.args.get("jS", type=str)
+        jS = request.args.get("jS", type=str)
+        vM = request.args.get("vM", type=str)
+        vS = request.args.get("vS", type=str)
+        sM = request.args.get("sM", type=str)
+        sS = request.args.get("sS", type=str)
+        dM = request.args.get("dM", type=str)
+        dS = request.args.get("dS", type=str)
+        regimes = request.args.get("regimes", type=str)
     except:
         return redirect(url_for('index'))
     
     key = get_key(key_str)
-    if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_STAFF and key.typeUser != TYPE_AUTEUR):
+    if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_AUTEUR):
         return redirect(url_for('index'))
     
-    return render_template("sleep.html")
+    form = SleepForm()
+    form.setup_choices()
+
+    if form.validate_on_submit():
+        return redirect("travel", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
+                            mail=mail, password=password, remarque=remarque, key=key_str, jM=jM,
+                            jS=jS, vM=vM, vS=vS, sM=sM, sS=sS, dM=dM, dS=dS, regimes=regimes,
+                            hotelJeudi=form.hotelJeudi.data, hotelVendredi=form.hotelVendredi.data,
+                            hotelSamedi=form.hotelSamedi.data, hotelDimanche=form.hotelDimanche.data)
+    
+    return render_template("sleep.html", form=form)
+
+@app.route("travel", methods=["GET", "POST"])
+def travel():
+    pass
 
 @app.route('/gestion')
 @login_required

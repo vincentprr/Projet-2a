@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SelectField
+from wtforms import SelectField
 from ..modeles.restaurant import Restaurant
 from ..modeles.repas import Repas
 from ..modeles.manger import Manger
