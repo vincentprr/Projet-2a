@@ -1,4 +1,15 @@
-<div class="erreur">
-    <img src="./static/images/lapaixdanslemonde.png" alt="svastika">
-    <p>Vous êtes nuls</p>
+{% block content %}
+
+<div id="popup">
+    <img src="./static/images/erreurdubai.png" alt="erreur croix rouge" id="dubai">
+    <p id="poptext">Vous êtes nuls</p>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var texte = 'Vous êtes meilleurs que les autres'
+        showpopup(texte);
+    });
+</script>
+
+
+{% endblock %}

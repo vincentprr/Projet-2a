@@ -1,3 +1,6 @@
+const POPUP = document.getElementById('popup');
+const POPTEXT = document.getElementById('poptext');
+
 function displayHeader() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -7,6 +10,9 @@ function displayHeader() {
     }
 }
 
-function showpopup() {
-    window.open("http://urldelapageacharger.htm", "nomdelafenetrepopup", "height=XXX, width=XXX, menubar='yes|no', toolbar='yes|no', location='yes|no', status='yes|no', scrollbars='yes|no'");
+function showpopup(texte) {
+    if (POPUP!=null && POPTEXT!=null){
+        POPUP.style.display = 'block';
+        POPTEXT.innerHTML = texte;
+    }
    }

@@ -624,12 +624,32 @@ td {
     gap: 0 30px;
 }
 
-.erreur {
+#popup {
     display: none;
     color: red;
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
+    background-color: #ddd;
+    padding: 1em;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 1em;
+    width: 40%;
+
+}
+
+#dubai {
+    height: 1.5em;
+    width: 1.5em;
     margin: 0;
-    margin-left: 1rem;
-    text-align: right;
+    margin-right: 0.5em;
+    display: inline;
+}
+
+#poptext {
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    display: inline;
 }
