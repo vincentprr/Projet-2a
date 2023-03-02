@@ -5,6 +5,7 @@ from ..controler.user_controler import LoginForm, RegisterForm, create_admin, cr
 from ..controler.cle_controler import get_key
 from ..controler.food_controleur import RepasForm, create_eat, assign_regime
 from ..controler.sleep_controler import SleepForm, create_loger
+from ..controler.edit_controler import MaisonEditionForm
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF
 
 @app.route("/index.html")
@@ -188,7 +189,13 @@ def travel():
     # if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_AUTEUR):
     #     return redirect(url_for('index'))
     
-    pass
+    form = MaisonEditionForm()
+    form.setup_choices()
+
+    if form.validate_on_submit():
+        pass
+
+    return render_template("author.html", form=form)
 
 @app.route('/gestion')
 @login_required
