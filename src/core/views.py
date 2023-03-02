@@ -157,38 +157,38 @@ def sleep():
     
     return render_template("sleep.html", form=form)
 
-@app.route("/travel", methods=["GET", "POST"])
+@app.route("/author", methods=["GET", "POST"])
 def travel():
-    try:
-        name = request.args.get("name", type=str)
-        last_name = request.args.get("last", type=str)
-        birth_date = request.args.get("birth", type=str)
-        tel = request.args.get("tel", type=str)
-        mail = request.args.get("mail", type=str)
-        password = request.args.get("password", type=str)
-        remarque = request.args.get("remarque", type=str)
-        key_str = request.args.get("key", type=str)
-        jM = request.args.get("jS", type=str)
-        jS = request.args.get("jS", type=str)
-        vM = request.args.get("vM", type=str)
-        vS = request.args.get("vS", type=str)
-        sM = request.args.get("sM", type=str)
-        sS = request.args.get("sS", type=str)
-        dM = request.args.get("dM", type=str)
-        dS = request.args.get("dS", type=str)
-        regimes = request.args.get("regimes", type=str)
-        hJ = request.args.get("hJ", type=str)
-        hV = request.args.get("hV", type=str)
-        hS = request.args.get("hS", type=str)
-        hD = request.args.get("hD", type=str)
-    except:
-        return redirect(url_for('index'))
+    # try:
+    #     name = request.args.get("name", type=str)
+    #     last_name = request.args.get("last", type=str)
+    #     birth_date = request.args.get("birth", type=str)
+    #     tel = request.args.get("tel", type=str)
+    #     mail = request.args.get("mail", type=str)
+    #     password = request.args.get("password", type=str)
+    #     remarque = request.args.get("remarque", type=str)
+    #     key_str = request.args.get("key", type=str)
+    #     jM = request.args.get("jS", type=str)
+    #     jS = request.args.get("jS", type=str)
+    #     vM = request.args.get("vM", type=str)
+    #     vS = request.args.get("vS", type=str)
+    #     sM = request.args.get("sM", type=str)
+    #     sS = request.args.get("sS", type=str)
+    #     dM = request.args.get("dM", type=str)
+    #     dS = request.args.get("dS", type=str)
+    #     regimes = request.args.get("regimes", type=str)
+    #     hJ = request.args.get("hJ", type=str)
+    #     hV = request.args.get("hV", type=str)
+    #     hS = request.args.get("hS", type=str)
+    #     hD = request.args.get("hD", type=str)
+    # except:
+    #     return redirect(url_for('index'))
     
-    key = get_key(key_str)
-    if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_AUTEUR):
-        return redirect(url_for('index'))
+    # key = get_key(key_str)
+    # if key is None or (key.typeUser != TYPE_INTERVENANT and key.typeUser != TYPE_AUTEUR):
+    #     return redirect(url_for('index'))
     
-
+    pass
 
 @app.route('/gestion')
 @login_required
