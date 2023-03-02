@@ -1,11 +1,11 @@
 from flask import render_template, url_for, redirect, request
 from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
-from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff, create_intervenant
+from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff, create_intervenant, create_author
 from ..controler.cle_controler import get_key
 from ..controler.food_controleur import RepasForm, create_eat, assign_regime
 from ..controler.sleep_controler import SleepForm, create_loger
-from ..controler.edit_controler import MaisonEditionForm
+from ..controler.edit_controler import MaisonEditionForm, create_appartient
 from .const import TYPE_ADMIN, TYPE_AUTEUR, TYPE_EXPOSANT, TYPE_INTERVENANT, TYPE_STAFF, JEUDI, VENDREDI, SAMEDI, DIMANCHE
 
 @app.route("/index.html")
@@ -89,24 +89,24 @@ def food():
             staff = create_staff(name, last_name, birth_date, tel, mail, password, remarque)
             
             if int(form.restaurantJeudiM.data) > 0:
-                create_eat(staff.idP, form.restaurantJeudiM.data)
+                create_eat(staff.idP, form.restaurantJeudiM.data, JEUDI, True)
             if int(form.restaurantJeudiS.data) > 0:
-                create_eat(staff.idP, form.restaurantJeudiS.data)
+                create_eat(staff.idP, form.restaurantJeudiS.data, JEUDI, False)
 
             if int(form.restaurantVendrediM.data) > 0:
-                create_eat(staff.idP, form.restaurantVendrediM.data)
+                create_eat(staff.idP, form.restaurantVendrediM.data, VENDREDI, True)
             if int(form.restaurantVendrediS.data) > 0:
-                create_eat(staff.idP, form.restaurantVendrediS.data)
+                create_eat(staff.idP, form.restaurantVendrediS.data, VENDREDI, False)
 
             if int(form.restaurantSamediM.data) > 0:
-                create_eat(staff.idP, form.restaurantSamediM.data)
+                create_eat(staff.idP, form.restaurantSamediM.data, SAMEDI, True)
             if int(form.restaurantSamediS.data) > 0:
-                create_eat(staff.idP, form.restaurantSamediS.data)
+                create_eat(staff.idP, form.restaurantSamediS.data, SAMEDI, False)
 
             if int(form.restaurantDimancheM.data) > 0:
-                create_eat(staff.idP, form.restaurantDimancheM.data)
+                create_eat(staff.idP, form.restaurantDimancheM.data, DIMANCHE, True)
             if int(form.restaurantDimancheS.data) > 0:
-                create_eat(staff.idP, form.restaurantDimancheS.data)
+                create_eat(staff.idP, form.restaurantDimancheS.data, DIMANCHE, False)
 
             for regime_id in form.regimes.data:
                 assign_regime(regime_id, staff.idP)
@@ -154,24 +154,24 @@ def sleep():
             inter = create_intervenant(name, last_name, birth_date, tel, mail, password, remarque,
                                        form.arrivee.data, form.depart.data, form.use_car.data)
             if int(jM) > 0:
-                create_eat(inter.idP, jM)
+                create_eat(inter.idP, jM, JEUDI, True)
             if int(jS) > 0:
-                create_eat(inter.idP, jS)
+                create_eat(inter.idP, jS, JEUDI, False)
 
             if int(vM) > 0:
-                create_eat(inter.idP, vM)
+                create_eat(inter.idP, vM, VENDREDI, True)
             if int(vS) > 0:
-                create_eat(inter.idP, vS)
+                create_eat(inter.idP, vS, VENDREDI, False)
 
             if int(sM) > 0:
-                create_eat(inter.idP, sM)
+                create_eat(inter.idP, sM, SAMEDI, True)
             if int(sS) > 0:
-                create_eat(inter.idP, sS)
+                create_eat(inter.idP, sS, SAMEDI, False)
 
             if int(dM) > 0:
-                create_eat(inter.idP, dM)
+                create_eat(inter.idP, dM, DIMANCHE, True)
             if int(dS) > 0:
-                create_eat(inter.idP, dS)
+                create_eat(inter.idP, dS, DIMANCHE, False)
 
             for regime_id in regimes.split(','):
                 assign_regime(int(regime_id), inter.idP)
@@ -232,7 +232,42 @@ def travel():
     form.setup_choices()
 
     if form.validate_on_submit():
-        pass
+        inter = create_author(name, last_name, birth_date, tel, mail, password, remarque,
+                                       arrivee, depart, car)
+        if int(jM) > 0:
+            create_eat(inter.idP, jM, JEUDI, True)
+        if int(jS) > 0:
+            create_eat(inter.idP, jS, JEUDI, False)
+
+        if int(vM) > 0:
+            create_eat(inter.idP, vM, VENDREDI, True)
+        if int(vS) > 0:
+            create_eat(inter.idP, vS, VENDREDI, False)
+
+        if int(sM) > 0:
+            create_eat(inter.idP, sM, SAMEDI, True)
+        if int(sS) > 0:
+            create_eat(inter.idP, sS, SAMEDI, False)
+
+        if int(dM) > 0:
+            create_eat(inter.idP, dM, DIMANCHE, True)
+        if int(dS) > 0:
+            create_eat(inter.idP, dS, DIMANCHE, False)
+
+        for regime_id in regimes.split(','):
+            assign_regime(int(regime_id), inter.idP)
+
+        if int(hJ) > 0:
+            create_loger(inter.idP, hJ, JEUDI)
+        if int(hV) > 0:
+            create_loger(inter.idP, hV, VENDREDI)
+        if int(hS) > 0:
+            create_loger(inter.idP, hS, SAMEDI)
+        if int(hD) > 0:
+            create_loger(inter.idP, hD, DIMANCHE)
+
+        for m in form.maison.data:
+            create_appartient(inter.idP, m)
 
     return render_template("author.html", form=form)
 

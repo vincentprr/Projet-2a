@@ -86,8 +86,19 @@ def create_intervenant(name:str, last_name:str, birth_date:str, tel:str,
 
     return intervenant
 
-def create_author() -> Auteur or None:
-    pass
+def create_author(name:str, last_name:str, birth_date:str, tel:str, 
+                mail:str, password:str, remarque:str, arrive:str, depart:str,
+                use_car:bool) -> Auteur:
+    p = create_user(name, last_name, birth_date, tel, 
+                mail, password, remarque, TYPE_INTERVENANT)
+    create_mangeur(p.id)
+
+    db.session.add(Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=use_car))
+    author = Auteur(idP=p.id)
+    db.session.add(author)
+    db.session.commit()
+
+    return author
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
