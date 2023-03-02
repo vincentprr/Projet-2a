@@ -11,3 +11,6 @@ class Hotel(db.Model):
     mailHotel = db.Column("mailHotel",TEXT)
     capaciteHotel = db.Column("capaciteHotel",SMALLINT(unsigned=True))
     loges = db.relationship("Loger", backref=backref("hotel", uselist=False))
+
+    def is_available(self, day:str) -> bool:
+        return len([loge for loge in self.loges if loge.JourLog == day]) < self.capaciteHotel

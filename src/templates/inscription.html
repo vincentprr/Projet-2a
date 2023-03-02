@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% include 'popup.html' %}
 <main>
     <form method="post">
         {{ form.hidden_tag() }}
@@ -19,8 +20,9 @@
         </div>
         
         <div>
-            <button type="submit">S'inscrire</button>
+            <button type="submit" class="btn1">S'inscrire</button>
         </div>
         </form>
 </main>
+
 {% endblock %}
