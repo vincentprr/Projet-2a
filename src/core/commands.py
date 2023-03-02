@@ -5,6 +5,7 @@ from hashlib import sha256
 from ..core.utils import crypt
 from ..controler.food_controleur import create_restaurant, create_launch, create_regime
 from ..controler.sleep_controler import create_hotel
+from ..controler.edit_controler import create_maison_edition
 from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
 
 @app.cli.command()
@@ -56,3 +57,8 @@ def createsamplefoods():
 def createsamplehostel():
     h1 = create_hotel("Rompiche fort", "128 rue du sommeil", "0610121314", "zzz@mail.fr", 100)
     h2 = create_hotel("Rincemax", "45 Avenue de morphé", "0666666666", "pwwwahjdors@laissemoidodozeubi.fr", 25)
+
+@app.cli.command()
+def createsamplemaison():
+    create_maison_edition("Maison piégée", 666)
+    create_maison_edition("Quartier rouge", 69)
