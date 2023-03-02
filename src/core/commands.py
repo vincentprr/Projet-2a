@@ -1,12 +1,13 @@
 from .app import app
 from .database import db, create_tables
 from ..modeles.personne import Personne
-from hashlib import sha256
 from ..core.utils import crypt
 from ..controler.food_controleur import create_restaurant, create_launch, create_regime
 from ..controler.sleep_controler import create_hotel
 from ..controler.edit_controler import create_maison_edition
+from ..controler.cle_controler import create_key
 from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
+import click
 
 @app.cli.command()
 def syncdb():
@@ -62,3 +63,12 @@ def createsamplehostel():
 def createsamplemaison():
     create_maison_edition("Maison piégée", 666)
     create_maison_edition("Quartier rouge", 69)
+
+@app.cli.command()
+@click.argument('type')
+def genkey(type):
+    key = create_key(int(type))
+    if key == None:
+        print("Fail to generate key, please retry...")
+    else:
+        print("Key "+ key.cleAct +" have been generated !")
