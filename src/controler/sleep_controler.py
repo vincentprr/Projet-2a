@@ -4,7 +4,7 @@ from ..controler.user_controler import get_user_by_id
 from ..core.database import db
 from ..core.const import JEUDI, VENDREDI, SAMEDI, DIMANCHE
 from flask_wtf import FlaskForm
-from wtforms import SelectField
+from wtforms import SelectField, DateTimeField, BooleanField
 
 def get_hotel_by_id(id:int) -> Hotel or None:
     return Hotel.query.get(id)
@@ -38,6 +38,9 @@ class SleepForm(FlaskForm):
     hotelVendredi = SelectField("Hotel du Vendredi : ", choices=[(str(-1), "Je fais autrement.")])
     hotelSamedi = SelectField("Hotel du Samedi : ", choices=[(str(-1), "Je fais autrement.")])
     hotelDimanche = SelectField("Hotel du Dimanche : ", choices=[(str(-1), "Je fais autrement.")])
+    arrive = DateTimeField("Heure d'arrivée au festival : ")
+    depart = DateTimeField("Heure de départ du festival : ")
+    use_car = BooleanField("Vennez vous par vous même : ")
 
     def setup_choices(self):
         for hotel in get_hotels():

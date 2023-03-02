@@ -3,6 +3,8 @@ from ..modeles.admin import Admin
 from ..modeles.exposant import Exposant
 from ..modeles.mangeur import Mangeur
 from ..modeles.staff import Staff
+from ..modeles.intervenant import Intervenant
+from ..modeles.auteur import Auteur
 from ..core.app import login_manager
 from ..core.database import db
 from wtforms import StringField, PasswordField, EmailField, DateField
@@ -70,6 +72,22 @@ def create_staff(name:str, last_name:str, birth_date:str, tel:str,
     db.session.commit()
 
     return staff
+
+def create_intervenant(name:str, last_name:str, birth_date:str, tel:str, 
+                mail:str, password:str, remarque:str, arrive:str, depart:str,
+                use_car:bool) -> Intervenant:
+    p = create_user(name, last_name, birth_date, tel, 
+                mail, password, remarque, TYPE_INTERVENANT)
+    create_mangeur(p.id)
+
+    intervenant = Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=use_car)
+    db.session.add(intervenant)
+    db.session.commit()
+
+    return intervenant
+
+def create_author() -> Auteur or None:
+    pass
 
 class LoginForm(FlaskForm):
     email = EmailField('Email')
