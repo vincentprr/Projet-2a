@@ -38,7 +38,7 @@ class SleepForm(FlaskForm):
     hotelVendredi = SelectField("Hotel du Vendredi : ", choices=[(str(-1), "Je fais autrement.")])
     hotelSamedi = SelectField("Hotel du Samedi : ", choices=[(str(-1), "Je fais autrement.")])
     hotelDimanche = SelectField("Hotel du Dimanche : ", choices=[(str(-1), "Je fais autrement.")])
-    arrive = DateTimeField("Heure d'arrivée au festival : ")
+    arrivee = DateTimeField("Heure d'arrivée au festival : ")
     depart = DateTimeField("Heure de départ du festival : ")
     use_car = BooleanField("Vennez vous par vous même : ")
 
