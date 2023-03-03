@@ -1,8 +1,8 @@
 DATABASE_PROVIDER = "mysql"
-DATABASE_HOST = "servinfo-mariadb"
-DATABASE_USER = "delaplace"
-DATABASE_PASS = "delaplace"
-DATABASE_NAME = "DBdelaplace"
+DATABASE_HOST = "127.0.0.1"
+DATABASE_USER = "root"
+DATABASE_PASS = ""
+DATABASE_NAME = "ecole"
 
 SESSION_KEY_LENGTH = 24
 
