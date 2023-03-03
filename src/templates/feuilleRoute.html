@@ -19,12 +19,12 @@
     </h3>
     <div class="contenu-route">
         <p>
-            Vous arrivez en {{transport}} le {{jour_arrivee}} à {{heure_arrivee}}.
+            Vous arrivez en {{"Voiture" if current_user.mangeur.intervenant.use_car == 1 else "Navette"}} le {{current_user.mangeur.intervenant.arrive.strftime('%d/%m/%Y à %Hh%S')}}.
         </p>
         <div class="ligne">
         </div>
         <p>
-            Vous repartez le {{jour_depart}} à {{heure_depart}}.
+            Vous repartez le {{current_user.mangeur.intervenant.depart.strftime('%d/%m/%Y à %Hh%S')}}.
         </p>
     </div> 
 </section>
@@ -33,18 +33,29 @@
     <h3>
         Hébergement
     </h3>
-        <div class="contenu-route">
-            <div class="p3"> Le
-            <select name="jour" id="jour">
-                <option valeur="mer">Mercredi</option>
-                <option valeur="je">Jeudi</option>
-                <option valeur="ven">Vendredi</option>
-                <option valeur="sam">Samedi</option>
-                <option valeur="dim">Dimanche</option>
-            </select>
-                , vous avez réservé {{type_chambre}} à {{hotel}}.
-            </div>
-        </div>
+    <table>
+        <tr>
+            <td></td>
+            <td>Jeudi</td>
+            <td>Vendredi</td>
+            <td>Samedi</td>
+            <td>Dimanche</td>
+        </tr>
+        <tr>
+            <td>Midi</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Soir</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 
 </section>
 <section class="section-route">
