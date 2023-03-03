@@ -1,6 +1,7 @@
 from flask import render_template, url_for, redirect, request
 from flask_login import login_user, current_user, login_required, logout_user
 from .app import app
+from .database import db
 from ..controler.user_controler import LoginForm, RegisterForm, create_admin, create_exposant, create_staff, create_intervenant, create_author
 from ..controler.cle_controler import get_key
 from ..controler.food_controleur import RepasForm, create_eat, assign_regime
@@ -50,9 +51,13 @@ def inscription():
             if key.typeUser == TYPE_ADMIN: # TO DO message c ok
                 create_admin(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
+                db.sesion.delete(key)
+                db.session.commit()
             elif key.typeUser == TYPE_EXPOSANT:
                 create_exposant(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
+                db.sesion.delete(key)
+                db.session.commit()
             else:
                 return redirect(url_for("food", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
                                  mail=form.mail.data, password=form.password.data, remarque=form.remarque.data, key=form.key.data))
@@ -110,6 +115,9 @@ def food():
 
             for regime_id in form.regimes.data:
                 assign_regime(regime_id, staff.idP)
+
+            db.sesion.delete(key)
+            db.session.commit()
         else:
             return redirect("sleep", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
                             mail=mail, password=password, remarque=remarque, key=key_str, jM=form.restaurantJeudiM.data,
@@ -184,6 +192,9 @@ def sleep():
                 create_loger(inter.idP, form.hotelSamedi.data, SAMEDI)
             if int(form.hotelDimanche.data) > 0:
                 create_loger(inter.idP, form.hotelDimanche.data, DIMANCHE)
+
+            db.sesion.delete(key)
+            db.session.commit()
         else:
             return redirect("travel", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
                                 mail=mail, password=password, remarque=remarque, key=key_str, jM=jM,
@@ -268,6 +279,9 @@ def travel():
 
         for m in form.maison.data:
             create_appartient(inter.idP, m)
+
+        db.sesion.delete(key)
+        db.session.commit()
 
     return render_template("author.html", form=form)
 

@@ -71,4 +71,4 @@ def genkey(type):
     if key == None:
         print("Fail to generate key, please retry...")
     else:
-        print("Key "+ key.cleAct +" have been generated !")
+        print("Key "+ key.cleAct +" has been generated !")
