@@ -9,7 +9,7 @@ class Intervenant(db.Model):
     depart = db.Column("depart",db.DateTime)
     mangeur = db.relationship("Mangeur", backref="intervenant")
     logements = db.relationship("Loger", backref="client")
-    voyages = db.relationship("Voyage", secondary="TRANSPORTER")
+    voyages = db.relationship("Voyage", secondary="TRANSPORTER", backref="voyageurs")
     use_car = db.Column("useCar", TINYINT(unsigned=True))
 
     def get_sleep(self, day:str) -> Loger or None:

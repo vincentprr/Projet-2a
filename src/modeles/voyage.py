@@ -8,4 +8,3 @@ class Voyage(db.Model):
     heureDebVoy = db.Column("heureDebVoy",db.DateTime)
     dureeVoy = db.Column("dureeVoy",TINYINT)
     idNavette = db.Column("idNavette",INTEGER(unsigned=True), db.ForeignKey("NAVETTE.idNavette"))
-    voyageurs = db.relationship("Intervenant", secondary="TRANSPORTER")
