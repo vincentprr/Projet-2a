@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <h1 id="inscrire">S'inscrire</h1>
+        <p class="choose-email"> Veuillez entrer vos informations d'hébergement :</p>
+        
+        <div id="hotel-label">
+            {{form.hotelJeudi.label()}}
+            {{form.hotelJeudi(class="listHotel")}}<br>
+            {{form.hotelVendredi.label()}}
+            {{form.hotelVendredi(class="listHotel")}}<br>
+            {{form.hotelSamedi.label()}}
+            {{form.hotelSamedi(class="listHotel")}}<br>
+            {{form.hotelDimanche.label()}}
+            {{form.hotelDimanche(class="listHotel")}}<br><br>
+        </div>
+        
+        <div>
+            <button type="submit" id="insc">S'inscrire</button>
+        </div>
+        </form>
+</main>
+{% endblock %}

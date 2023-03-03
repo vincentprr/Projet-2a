@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <h1>S'inscrire</h1>
+        <p class="choose-email"> Veuillez entrer vos informations de maison d'édition :</p>
+        
+        {{form.maison.label()}}
+        {{form.maison()}}<br><br>
+        
+        <div>
+            <button type="submit">S'inscrire</button>
+        </div>
+        </form>
+</main>
+{% endblock %}

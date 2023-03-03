@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% include 'popup.html' %}
 <main>
-    <form method="post" action="{{ url_for('inscription') }}">
+    <form method="post">
+        {{ form.hidden_tag() }}
         <h1>S'inscrire</h1>
         <p class="choose-email"> Veuillez entrer vos informations :</p>
         
         <div class="inputs inscrit">
-            {% for field in form %}
-                {{ field(placeholder=field.label.text) }}
-            {% endfor %}
+            {{ form.name(placeholder=form.name.label.text) }}
+            {{ form.last_name(placeholder=form.last_name.label.text) }}
+            {{ form.birth_date(placeholder=form.birth_date.label.text) }}
+            {{ form.tel(placeholder=form.tel.label.text) }}
+            {{ form.mail(placeholder=form.mail.label.text) }}
+            {{ form.password(placeholder=form.password.label.text) }}
+            {{ form.remarque(placeholder=form.remarque.label.text) }}
+            {{ form.key(placeholder=form.key.label.text) }}
         </div>
         
         <div>
-            <button type="submit">S'inscrire</button>
+            <button type="submit" class="btn1">S'inscrire</button>
         </div>
         </form>
-        <script src="{{ url_for('register_js') }}"></script>
 </main>
+
 {% endblock %}

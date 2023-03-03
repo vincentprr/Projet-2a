@@ -33,7 +33,7 @@ body {
 .titretop img:hover {
     transform: scale(1.1);
     transition: 0.5s;
-    
+
 }
 
 .nomfest {
@@ -57,7 +57,7 @@ body {
     overflow: hidden;
     background-color: #374352;
 
-    
+
 }
 
 
@@ -89,9 +89,9 @@ body {
     text-transform: uppercase;
     position: relative;
     transition: .5s ease;
-  }
-  
-  .btn::before {
+}
+
+.btn::before {
     content: '';
     position: absolute;
     left: 0;
@@ -100,18 +100,18 @@ body {
     width: 0;
     background-color: #ffc506;
     transition: .5s ease;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     color: #ffc506;
     transition-delay: .5s;
-  }
-  
-  .btn:hover::before {
+}
+
+.btn:hover::before {
     width: 100%;
-  }
-  
-  .btn::after {
+}
+
+.btn::after {
     content: '';
     position: absolute;
     left: 0;
@@ -121,13 +121,13 @@ body {
     background-color: #ffc506;
     transition: .4s ease;
     z-index: -1;
-  }
-  
-  .btn:hover::after {
+}
+
+.btn:hover::after {
     height: 100%;
     transition-delay: 0.4s;
     color: aliceblue;
-  }
+}
 
 
 /* bouton du menu */
@@ -136,7 +136,7 @@ body {
 
 .fancy {
     background-color: transparent;
-    border: 2px solid  #FBBE3B;
+    border: 2px solid #FBBE3B;
     border-radius: 0;
     box-sizing: border-box;
     color: #fff;
@@ -157,22 +157,22 @@ body {
     user-select: none;
     font-size: 13px;
 
-   }
-   
-   .fancy::before {
+}
+
+.fancy::before {
     content: " ";
     width: 1.5625rem;
     height: 2px;
-    background:  #FBBE3B;
+    background: #FBBE3B;
     top: 50%;
     left: 1.5em;
     position: absolute;
     transform: translateY(-50%);
     transform-origin: center;
     transition: background 0.3s linear, width 0.3s linear;
-   }
-   
-   .fancy .text {
+}
+
+.fancy .text {
     font-size: 1.125em;
     line-height: 1.33333em;
     padding-left: 2em;
@@ -181,10 +181,10 @@ body {
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
     text-decoration: none;
-    color:  aliceblue;
-   }
-   
-   .fancy .top-key {
+    color: aliceblue;
+}
+
+.fancy .top-key {
     height: 2px;
     width: 1.5625rem;
     top: -2px;
@@ -192,9 +192,9 @@ body {
     position: absolute;
     background: #374352;
     transition: width 0.5s ease-out, left 0.3s ease-out;
-   }
-   
-   .fancy .bottom-key-1 {
+}
+
+.fancy .bottom-key-1 {
     height: 2px;
     width: 1.5625rem;
     right: 1.875rem;
@@ -202,9 +202,9 @@ body {
     position: absolute;
     background: #374352;
     transition: width 0.5s ease-out, right 0.3s ease-out;
-   }
-   
-   .fancy .bottom-key-2 {
+}
+
+.fancy .bottom-key-2 {
     height: 2px;
     width: 0.625rem;
     right: 0.625rem;
@@ -212,33 +212,33 @@ body {
     position: absolute;
     background: #374352;
     transition: width 0.5s ease-out, right 0.3s ease-out;
-   }
-   
-   .fancy:hover {
+}
+
+.fancy:hover {
     color: white;
-    background:  #FBBE3B;
-   }
-   
-   .fancy:hover::before {
+    background: #FBBE3B;
+}
+
+.fancy:hover::before {
     width: 0.9375rem;
     background: #374352;
-   }
-   
-   .fancy:hover .text {
+}
+
+.fancy:hover .text {
     color: #374352;
     padding-left: 1.5em;
-   }
-   
-   .fancy:hover .top-key {
+}
+
+.fancy:hover .top-key {
     left: -2px;
     width: 0px;
-   }
-   
-   .fancy:hover .bottom-key-1,
-    .fancy:hover .bottom-key-2 {
+}
+
+.fancy:hover .bottom-key-1,
+.fancy:hover .bottom-key-2 {
     right: 0;
     width: 0;
-   }
+}
 
 /* se connecter qui bouge */
 
@@ -268,6 +268,24 @@ main {
     transform: translateY(-0.7em);
 }
 
+.titre-contenant {
+    text-align: center;
+    font-size: 2em;
+    color: #1DA1F2;
+    font-weight: 700;
+    margin-top: 1em;
+    background-color: #262F3A;
+}
+
+.texte-contenant {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #262F3A;
+    font-weight: 700;
+    margin-top: 1em;
+    padding: 1rem;
+}
+
 #image {
     overflow: hidden;
     background-image: url(../images/accueil.jpg);
@@ -281,37 +299,21 @@ main {
     transform: scale(1.1);
     filter: grayscale(0%);
     box-shadow: 0 0.8em 0.6em rgba(0, 0, 0, 0.2);
-    filter: grayscale(0%) ;
+    filter: grayscale(0%);
 
 
 }
 
-.overlay {
+.image-acceuil {
     padding: 1em;
-    transition: backdrop-filter 0.3s;
     height: 100%;
     width: 100%;
     color: #ddd;
 }
 
-.overlay h1 {
-    margin-top: 0;
+.image-acceuil:hover {
+    color: #ddd;
 }
-
-.overlay:hover {
-    backdrop-filter: blur(4px);
-}
-
-.overlay>* {
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.overlay:hover>* {
-    opacity: 1;
-}
-
-
 
 footer {
     background-color: #FBBE3B;
@@ -338,12 +340,13 @@ footer .reseau {
     width: 100%;
     font-family: "Poppins", sans-serif;
     justify-content: center;
-  }
-  .wrapper p {
+}
+
+.wrapper p {
     margin-left: 10px;
-  }
-  
-  .wrapper .icon {
+}
+
+.wrapper .icon {
     position: relative;
     background: #fff;
     border-radius: 50%;
@@ -358,9 +361,9 @@ footer .reseau {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip {
+}
+
+.wrapper .tooltip {
     position: absolute;
     top: 0;
     font-size: 14px;
@@ -372,9 +375,9 @@ footer .reseau {
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip::before {
+}
+
+.wrapper .tooltip::before {
     position: absolute;
     content: "";
     height: 8px;
@@ -384,42 +387,42 @@ footer .reseau {
     left: 50%;
     transform: translate(-50%) rotate(45deg);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .icon:hover .tooltip {
+}
+
+.wrapper .icon:hover .tooltip {
     top: -45px;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-  }
-  
-  .wrapper .icon:hover span,
-  .wrapper .icon:hover .tooltip {
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  }
-  
-  .wrapper .facebook:hover,
-  .wrapper .facebook:hover .tooltip,
-  .wrapper .facebook:hover .tooltip::before {
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
     background: #1877F2;
     color: #fff;
-  }
-  
-  .wrapper .twitter:hover,
-  .wrapper .twitter:hover .tooltip,
-  .wrapper .twitter:hover .tooltip::before {
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
     background: #1DA1F2;
     color: #fff;
-  }
-  
-  .wrapper .instagram:hover,
-  .wrapper .instagram:hover .tooltip,
-  .wrapper .instagram:hover .tooltip::before {
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
     background: #E4405F;
     color: #fff;
-  }
-  
-  
+}
+
+
 
 
 
@@ -427,6 +430,7 @@ footer .reseau {
 
 form {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     background-color: #262F3A;
     padding: 2.5rem 3.7rem;
     border-radius: 10px;
@@ -604,13 +608,15 @@ td {
     padding: 0.3rem;
 }
 
-.btn-edit, .btn-delete {
+.btn-edit,
+.btn-delete {
     background-color: transparent;
     border: none;
     margin: auto;
 }
 
-.btn-edit:hover, .btn-delete:hover {
+.btn-edit:hover,
+.btn-delete:hover {
     cursor: pointer;
 }
 
@@ -708,4 +714,110 @@ td {
     border-radius: 1vw;
     padding: 0.5%;
     margin: 2%;
+}
+#hotel-label {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.choose-email {
+    color: #f2f2f2;
+    text-align: center;
+    font-size: larger;
+    font-style: italic;
+}
+
+#inscrire {
+    color: #FBBE3B;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.listHotel {
+    font-size: large;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    margin-left: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+#popup {
+    display: none;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ddd;
+    padding: 1em;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 1em;
+    width: 40%;
+
+}
+
+#dubai {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0;
+    margin-right: 0.5em;
+    display: inline;
+}
+
+#poptext {
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.label-restau { 
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.input-restau {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+}
+
+.input-restau:focus {
+    outline: none;
+    border : 2px solid #FBBE3B;
+}
+
+.label-regime {
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.input-regime {
+    color : white;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    list-style: none;
+}
+
+.btn-inscrire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

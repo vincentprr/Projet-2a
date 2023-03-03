@@ -15,4 +15,4 @@ class Personne(db.Model, UserMixin):
     remarques = db.Column(TEXT)
 
     def get_id(self):
-        return self.id # replace par email si ca marche pas
+        return self.id
