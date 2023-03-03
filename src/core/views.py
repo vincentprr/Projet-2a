@@ -51,15 +51,15 @@ def inscription():
             if key.typeUser == TYPE_ADMIN: # TO DO message c ok
                 create_admin(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
-                db.sesion.delete(key)
+                db.session.delete(key)
                 db.session.commit()
             elif key.typeUser == TYPE_EXPOSANT:
                 create_exposant(form.name.data, form.last_name.data, form.birth_date.data, form.tel.data, form.mail.data,
                              form.password.data, form.remarque.data)
-                db.sesion.delete(key)
+                db.session.delete(key)
                 db.session.commit()
             else:
-                return redirect(url_for("food", name=form.name.data, last_name=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
+                return redirect(url_for("food", name=form.name.data, last=form.last_name.data, birth_date=form.birth_date.data, tel=form.tel.data,
                                  mail=form.mail.data, password=form.password.data, remarque=form.remarque.data, key=form.key.data))
         else:
             print("Key not found...")
@@ -72,7 +72,7 @@ def inscription():
 def food():
     try:
         name = request.args.get("name", type=str)
-        last_name = request.args.get("last", type=str)
+        last = request.args.get("last", type=str)
         birth_date = request.args.get("birth", type=str)
         tel = request.args.get("tel", type=str)
         mail = request.args.get("mail", type=str)
@@ -91,7 +91,7 @@ def food():
 
     if form.validate_on_submit():
         if key.typeUser == TYPE_STAFF:
-            staff = create_staff(name, last_name, birth_date, tel, mail, password, remarque)
+            staff = create_staff(name, last, birth_date, tel, mail, password, remarque)
             
             if int(form.restaurantJeudiM.data) > 0:
                 create_eat(staff.idP, form.restaurantJeudiM.data, JEUDI, True)
@@ -116,14 +116,14 @@ def food():
             for regime_id in form.regimes.data:
                 assign_regime(regime_id, staff.idP)
 
-            db.sesion.delete(key)
+            db.session.delete(key)
             db.session.commit()
         else:
-            return redirect("sleep", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
+            return redirect(url_for("sleep", name=name, last=last, birth_date=birth_date, tel=tel,
                             mail=mail, password=password, remarque=remarque, key=key_str, jM=form.restaurantJeudiM.data,
                             jS=form.restaurantJeudiS.data, vM=form.restaurantVendrediM.data, vS=form.restaurantVendrediS.data,
                             sM=form.restaurantSamediM.data, sS=form.restaurantSamediS.data, dM=form.restaurantDimancheM.data,
-                            dS=form.restaurantDimancheS.data, regimes=','.join(form.regimes.data))
+                            dS=form.restaurantDimancheS.data, regimes=','.join(form.regimes.data)))
 
     return render_template("food.html", form=form)
 
@@ -131,7 +131,7 @@ def food():
 def sleep():
     try:
         name = request.args.get("name", type=str)
-        last_name = request.args.get("last", type=str)
+        last = request.args.get("last", type=str)
         birth_date = request.args.get("birth", type=str)
         tel = request.args.get("tel", type=str)
         mail = request.args.get("mail", type=str)
@@ -159,7 +159,7 @@ def sleep():
 
     if form.validate_on_submit():
         if key.typeUser == TYPE_INTERVENANT:
-            inter = create_intervenant(name, last_name, birth_date, tel, mail, password, remarque,
+            inter = create_intervenant(name, last, birth_date, tel, mail, password, remarque,
                                        form.arrivee.data, form.depart.data, form.use_car.data)
             if int(jM) > 0:
                 create_eat(inter.idP, jM, JEUDI, True)
@@ -193,15 +193,15 @@ def sleep():
             if int(form.hotelDimanche.data) > 0:
                 create_loger(inter.idP, form.hotelDimanche.data, DIMANCHE)
 
-            db.sesion.delete(key)
+            db.session.delete(key)
             db.session.commit()
         else:
-            return redirect("travel", name=name, last_name=last_name, birth_date=birth_date, tel=tel,
+            return redirect(url_for("travel", name=name, last=last, birth_date=birth_date, tel=tel,
                                 mail=mail, password=password, remarque=remarque, key=key_str, jM=jM,
                                 jS=jS, vM=vM, vS=vS, sM=sM, sS=sS, dM=dM, dS=dS, regimes=regimes,
-                                hj=form.hotelJeudi.data, hv=form.hotelVendredi.data,
-                                hs=form.hotelSamedi.data, hd=form.hotelDimanche.data,
-                                arrivee=form.arrivee.data, depart=form.depart.data, car=form.use_car.data)
+                                hJ=form.hotelJeudi.data, hV=form.hotelVendredi.data,
+                                hS=form.hotelSamedi.data, hD=form.hotelDimanche.data,
+                                arrivee=form.arrivee.data, depart=form.depart.data, car=form.use_car.data))
     
     return render_template("sleep.html", form=form)
 
@@ -209,7 +209,7 @@ def sleep():
 def travel():
     try:
         name = request.args.get("name", type=str)
-        last_name = request.args.get("last", type=str)
+        last = request.args.get("last", type=str)
         birth_date = request.args.get("birth", type=str)
         tel = request.args.get("tel", type=str)
         mail = request.args.get("mail", type=str)
@@ -243,7 +243,7 @@ def travel():
     form.setup_choices()
 
     if form.validate_on_submit():
-        inter = create_author(name, last_name, birth_date, tel, mail, password, remarque,
+        inter = create_author(name, last, birth_date, tel, mail, password, remarque,
                                        arrivee, depart, car)
         if int(jM) > 0:
             create_eat(inter.idP, jM, JEUDI, True)
@@ -280,7 +280,7 @@ def travel():
         for m in form.maison.data:
             create_appartient(inter.idP, m)
 
-        db.sesion.delete(key)
+        db.session.delete(key)
         db.session.commit()
 
     return render_template("author.html", form=form)

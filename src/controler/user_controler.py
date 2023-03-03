@@ -80,7 +80,7 @@ def create_intervenant(name:str, last_name:str, birth_date:str, tel:str,
                 mail, password, remarque, TYPE_INTERVENANT)
     create_mangeur(p.id)
 
-    intervenant = Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=use_car)
+    intervenant = Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=1 if use_car else 0)
     db.session.add(intervenant)
     db.session.commit()
 
@@ -93,7 +93,7 @@ def create_author(name:str, last_name:str, birth_date:str, tel:str,
                 mail, password, remarque, TYPE_INTERVENANT)
     create_mangeur(p.id)
 
-    db.session.add(Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=use_car))
+    db.session.add(Intervenant(idP=p.id, arrive=arrive, depart=depart, use_car=1 if use_car else 0))
     author = Auteur(idP=p.id)
     db.session.add(author)
     db.session.commit()

@@ -4,11 +4,15 @@
 <section>
     <div class="contenu-route">
         <p>
-            Monsieur/Madame {{nom}} {{prenom}} de la maison d'édition {{maisonEdition}} est inscrit(e) pour le festival
-            BD.BOUM du {{date}}.
+            Madame/Monsieur {{current_user.nom}} {{current_user.prenom}} 
+            {% if current_user.mangeur != None and current_user.mangeur.intervenant != None and current_user.mangeur.intervenant.auteur != None %}
+            des maisons d'éditions 
+            {% endif %}
+            est inscrit(e) pour le festival BD.BOUM.
         </p>
     </div>
 </section>
+{% if current_user.mangeur != None and current_user.mangeur.intervenant != None %}
 <section class="section-route">
     <h3>
         Transport
@@ -24,6 +28,7 @@
         </p>
     </div> 
 </section>
+{% endif %}
 <section class="section-route">
     <h3>
         Hébergement
