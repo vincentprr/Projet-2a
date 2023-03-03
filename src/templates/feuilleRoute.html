@@ -6,7 +6,12 @@
         <p>
             Madame/Monsieur {{current_user.nom}} {{current_user.prenom}} 
             {% if current_user.mangeur != None and current_user.mangeur.intervenant != None and current_user.mangeur.intervenant.auteur != None %}
-            des maisons d'éditions 
+            des/de la maison(s) d'édition(s) 
+                {% set names=namespace(entities=[]) %}
+                {% for house in current_user.mangeur.intervenant.auteur.maisons_editions %}
+                    {% set names.entities = names.entities + [house.nomME] %} 
+                {% endfor %}
+                {{names.entities|join(", ")}}
             {% endif %}
             est inscrit(e) pour le festival BD.BOUM.
         </p>
